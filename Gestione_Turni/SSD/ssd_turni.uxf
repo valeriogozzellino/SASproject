@@ -29,7 +29,7 @@ fg=blue
 bg=#8CB4FF</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>675</x><y>54</y><w>603</w><h>1098</h></coordinates><panel_attributes>LOOP
 fg=#808080
 bg=#F2F1EF
-layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>702</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1170</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>18</y><w>27</w><h>1305</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1430;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1206</x><y>18</y><w>27</w><h>1305</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1430;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>90</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>702</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1170</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>18</y><w>27</w><h>1278</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1400;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1206</x><y>18</y><w>27</w><h>1278</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1400;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>90</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 1. mostraCalendario()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>135</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 calendario</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>576</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
@@ -120,7 +120,7 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_att
 calendario
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>189</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-2. aggiungiTurnoCucina()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>18</y><w>27</w><h>1377</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1510;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1845</x><y>18</y><w>27</w><h>1377</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1510;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>225</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+2. aggiungiTurnoCucina()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>18</y><w>27</w><h>1323</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1450;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1845</x><y>18</y><w>27</w><h>1332</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1460;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>225</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>657</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 3. raggruppaTurni()
 fg=#808080
@@ -273,7 +273,7 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_att
 2a.1 eliminazioneTurno()
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>459</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
-fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>18</y><w>27</w><h>1071</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1170;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1989</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2457</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2493</x><y>18</y><w>27</w><h>1080</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1180;10;10</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>1962</x><y>54</y><w>603</w><h>837</h></coordinates><panel_attributes>LOOP
+fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>18</y><w>27</w><h>1026</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1120;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1989</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2457</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2493</x><y>18</y><w>27</w><h>1026</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1120;10;10</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>1962</x><y>54</y><w>603</w><h>837</h></coordinates><panel_attributes>LOOP
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
@@ -359,7 +359,7 @@ fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>666</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>18</y><w>27</w><h>1332</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1460;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>3096</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2628</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3132</x><y>18</y><w>27</w><h>1332</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1460;10;10</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>2601</x><y>54</y><w>603</w><h>1098</h></coordinates><panel_attributes>LOOP
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>18</y><w>27</w><h>1278</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1400;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>3096</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2628</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3132</x><y>18</y><w>27</w><h>1278</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1400;10;10</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>2601</x><y>54</y><w>603</w><h>1098</h></coordinates><panel_attributes>LOOP
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
@@ -484,7 +484,7 @@ fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>1179</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 8. salvoSchemaTurni()
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>3249</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>18</y><w>27</w><h>1332</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1460;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>3717</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3753</x><y>18</y><w>27</w><h>1332</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1460;10;10</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>3222</x><y>54</y><w>603</w><h>891</h></coordinates><panel_attributes>LOOP
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>3249</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>18</y><w>27</w><h>1080</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1180;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>3717</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3753</x><y>18</y><w>27</w><h>1089</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1190;10;10</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>3222</x><y>54</y><w>603</w><h>891</h></coordinates><panel_attributes>LOOP
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
@@ -573,7 +573,7 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_att
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>3249</x><y>972</y><w>549</w><h>90</h></coordinates><panel_attributes>OPT
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>18</y><w>27</w><h>1332</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1460;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>3888</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>4356</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>3861</x><y>54</y><w>603</w><h>972</h></coordinates><panel_attributes>LOOP
+bg=#F2F1EF</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>18</y><w>27</w><h>1161</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1270;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>3888</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>4356</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>3861</x><y>54</y><w>603</w><h>972</h></coordinates><panel_attributes>LOOP
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
@@ -612,7 +612,7 @@ fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>522</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4401</x><y>18</y><w>27</w><h>1350</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1480;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>585</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4401</x><y>18</y><w>27</w><h>1161</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1270;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>585</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 6. mostraCalendario()</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>621</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 calendario</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>3879</x><y>576</y><w>558</w><h>342</h></coordinates><panel_attributes>ALT
 fg=#761C8C
@@ -668,7 +668,7 @@ bg=#ffaaaa
 
 
 
--.
+
 fg=#D3001B
 layer=1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>4401</x><y>873</y><w>18</w><h>18</h></coordinates><panel_attributes>type=termination
 fg=red
@@ -688,6 +688,167 @@ bg=#F2F1EF</panel_attributes><additional_attributes></additional_attributes></el
 8. salvoSchemaTurni()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>1098</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+schema turni
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>4518</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>18</y><w>27</w><h>1494</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1640;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>4986</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>5031</x><y>18</y><w>27</w><h>1494</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1640;10;10</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>4491</x><y>54</y><w>603</w><h>1305</h></coordinates><panel_attributes>LOOP
+fg=#808080
+bg=#F2F1EF
+layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+1. mostraCalendario()
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>126</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+calendario
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>171</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+2. aggiungiTurnoCucina()
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>216</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+ok
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>4509</x><y>270</y><w>558</w><h>90</h></coordinates><panel_attributes>OPT
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>279</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+3. raggruppaTurni()
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>324</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+ok
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>4509</x><y>369</y><w>558</w><h>90</h></coordinates><panel_attributes>OPT
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>378</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+4. modificaTurno()
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>423</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+ok
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>4509</x><y>468</y><w>558</w><h>90</h></coordinates><panel_attributes>OPT
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>477</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+5. aggiungiScadenza()
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>522</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+ok
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>585</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+6. mostraCalendario()
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>630</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+calendario
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>693</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+7. aggiungoTurnoServizio()</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>747</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+ok</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>4509</x><y>684</y><w>567</w><h>657</h></coordinates><panel_attributes>ALT
+fg=#761C8C
+bg=#e7bfff
+lw=2
+--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-.
+
+
+
+
+
+-.
+
+
+
+
+
+-.
+
+
+
+
+
+-.
+layer=0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>4518</x><y>738</y><w>540</w><h>243</h></coordinates><panel_attributes>ALT
+bg=#ffaaaa
+--
+
+
+-.
+
+
+
+-.
+
+
+
+-.
+
+
+
+-.
+fg=#D3001B
+layer=1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>5031</x><y>810</y><w>18</w><h>18</h></coordinates><panel_attributes>type=termination
+fg=red
+lw=2
+layer=2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>801</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+7a.1 L’attore che cerca di modificare il turno non è l’organizzatore
+fg=red
+layer=2</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>5031</x><y>855</y><w>18</w><h>18</h></coordinates><panel_attributes>type=termination
+fg=red
+lw=2
+layer=2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>846</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+7b.1 Il turno non esiste
+fg=red
+layer=2</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>5031</x><y>900</y><w>18</w><h>18</h></coordinates><panel_attributes>type=termination
+fg=red
+lw=2
+layer=2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>891</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+7c.1 Il turno si sovrappone con un altro turno
+fg=red
+layer=2</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>5031</x><y>945</y><w>18</w><h>18</h></coordinates><panel_attributes>type=termination
+fg=red
+lw=2
+layer=2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>936</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+7d.1 I tempi impostati superano la durata del turno
+fg=red
+layer=2</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>999</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+7a.1 modificaTurnoServizio()
+fg=#9E1C8C</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>1035</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+ok
+fg=#9E1C8C</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>1107</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+ok
+fg=#9E1C8C</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>1071</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+7b.1 eliminaTurnoServizio()
+fg=#9E1C8C</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>1179</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+ok
+fg=#9E1C8C</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>1143</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+7c.1 impostaTempoPrePostTurno()
+fg=#9E1C8C</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>1278</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+ok
+fg=#9E1C8C</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>1233</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+7d.1 applicoRicorrenza()
+fg=#9E1C8C</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>4518</x><y>1224</y><w>549</w><h>99</h></coordinates><panel_attributes>OPT
+fg=#128C86
+bg=#B8E0E0</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>4518</x><y>1377</y><w>549</w><h>90</h></coordinates><panel_attributes>OPT
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>1386</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+8. salvoSchemaTurni()
+fg=#808080
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>1431</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 schema turni
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element></diagram>
