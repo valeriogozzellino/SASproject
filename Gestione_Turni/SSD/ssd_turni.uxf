@@ -3,8 +3,8 @@ fg=red
 lw=2
 layer=2
 </help_text><element><id>UMLClass</id><coordinates><x>27</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>495</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>18</y><w>27</w><h>990</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1080;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>531</x><y>18</y><w>27</w><h>999</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1090;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>63</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-1. mostraCalendario()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>108</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>36</x><y>180</y><w>549</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+1. mostraTabellone()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>108</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+tabellone</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>36</x><y>180</y><w>549</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 2. aggiungiTurnoCucina(cuoco?, data?, orarioInizio?, orarioFine?, evento?, tabelloneDeiTurni, compito?)</panel_attributes><additional_attributes>40;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>225</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>297</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 3. raggruppaTurni(insieme T di Turni, cuoco?)</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>342</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
@@ -13,8 +13,8 @@ ok</panel_attributes><additional_attributes>10;20;530;20</additional_attributes>
 ok</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>531</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 5. aggiungiScadenza(insieme T di Turni, dataScadenza)</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>576</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>648</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-6. mostraCalendario()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>693</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>882</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+6. mostraTabellone()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>693</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+tabellone</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>882</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 8. salvoSchemaTurni()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>927</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 schema turni</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>27</x><y>288</y><w>549</w><h>90</h></coordinates><panel_attributes>OPT
 fg=#128C86
@@ -30,8 +30,8 @@ bg=#8CB4FF</panel_attributes><additional_attributes></additional_attributes></el
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>702</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1170</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>18</y><w>27</w><h>1278</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1400;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1206</x><y>18</y><w>27</w><h>1278</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1400;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>90</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-1. mostraCalendario()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>135</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>576</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+1. mostraTabellone()</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>135</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+tabellone</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>576</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>630</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
@@ -93,7 +93,7 @@ lw=2
 layer=0</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>279</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 1a.1 visualizzazioneFiltrata(schemaTurni, filtraData?, filtraOrario?, filtraCuoco?, filtraEvento?)
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>315</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>711</x><y>126</y><w>522</w><h>126</h></coordinates><panel_attributes>ALT
 bg=#ffaaaa
 --
@@ -105,19 +105,19 @@ bg=#ffaaaa
 -.
 fg=#D3001B
 layer=1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>171</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-1a.1 L’attore che cerca di accedere al calendario non è l’organizzatore
+1a.1 L’attore che cerca di accedere al tabellone dei turni non è l’organizzatore
 fg=red
 layer=2</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>216</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-1b.1 Il calendario non è accessibile
+1b.1 Il tabellone dei turni non è accessibile
 fg=red
 layer=2</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>1206</x><y>225</y><w>18</w><h>18</h></coordinates><panel_attributes>type=termination
 fg=red
 lw=2
 layer=2</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1341</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Chef_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1809</x><y>0</y><w>90</w><h>27</h></coordinates><panel_attributes>_:Sistema_</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>72</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-1. mostraCalendario()
+1. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>117</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1350</x><y>189</y><w>549</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 2. aggiungiTurnoCucina(cuoco?, data?, orarioInizio?, orarioFine?, evento?, tabelloneDeiTurni, compito?)</panel_attributes><additional_attributes>40;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>18</y><w>27</w><h>1323</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1450;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1845</x><y>18</y><w>27</w><h>1332</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1460;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>225</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
@@ -218,7 +218,7 @@ ok
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>378</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 1b.1 apriSchema(schemaTurni)
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>423</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>711</x><y>423</y><w>522</w><h>81</h></coordinates><panel_attributes>ALT
 bg=#ffaaaa
 --
@@ -238,29 +238,29 @@ fg=red
 layer=2</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>1341</x><y>648</y><w>549</w><h>90</h></coordinates><panel_attributes>OPT
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>63</x><y>792</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-ok</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>45</x><y>747</y><w>531</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)</panel_attributes><additional_attributes>30;20;550;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>1035</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+ok</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>36</x><y>747</y><w>558</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)</panel_attributes><additional_attributes>40;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>1035</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+tabellone
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>990</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-6. mostraCalendario()
+6. mostraTabellone()
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1359</x><y>1089</y><w>531</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1350</x><y>1089</y><w>558</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>30;20;550;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>1134</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+bg=#F2F1EF</panel_attributes><additional_attributes>40;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1377</x><y>1134</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>954</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-6. mostraCalendario()
+6. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>999</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>1053</y><w>531</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>711</x><y>1053</y><w>558</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>30;20;550;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>1098</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+bg=#F2F1EF</panel_attributes><additional_attributes>40;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>1098</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>738</x><y>1179</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
@@ -277,10 +277,10 @@ fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_att
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-1. mostraCalendario()
+1. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>126</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2007</x><y>171</y><w>531</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 2. aggiungiTurnoCucina(cuoco?, data?, orarioInizio?, orarioFine?, evento?, tabelloneDeiTurni,compito?)
@@ -324,15 +324,15 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_att
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>711</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-6. mostraCalendario()
+6. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>756</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2007</x><y>810</y><w>531</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1998</x><y>810</y><w>558</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>30;20;550;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>855</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+bg=#F2F1EF</panel_attributes><additional_attributes>40;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>855</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2025</x><y>927</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
@@ -363,10 +363,10 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_att
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-1. mostraCalendario()
+1. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>126</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2646</x><y>171</y><w>531</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 2. aggiungiTurnoCucina(cuoco?, data?, orarioInizio?, orarioFine?, evento?, tabelloneDeiTurni,compito?)
@@ -465,15 +465,15 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_att
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>972</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-6. mostraCalendario()
+6. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>1017</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2646</x><y>1062</y><w>531</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2637</x><y>1062</y><w>558</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>30;20;550;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>1116</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+bg=#F2F1EF</panel_attributes><additional_attributes>40;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2664</x><y>1116</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>2628</x><y>1170</y><w>549</w><h>90</h></coordinates><panel_attributes>OPT
@@ -488,10 +488,10 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_att
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-1. mostraCalendario()
+1. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>126</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3258</x><y>171</y><w>549</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 2. aggiungiTurnoCucina(cuoco?, data?, orarioInizio?, orarioFine?, evento?, tabelloneDeiTurni, compito?)
@@ -554,15 +554,15 @@ layer=2</panel_attributes><additional_attributes></additional_attributes></eleme
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>684</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>756</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-6. mostraCalendario()
+6. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>801</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3267</x><y>855</y><w>531</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3258</x><y>855</y><w>558</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>30;20;550;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>900</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+bg=#F2F1EF</panel_attributes><additional_attributes>40;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>900</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3285</x><y>1026</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
@@ -577,10 +577,10 @@ bg=#F2F1EF</panel_attributes><additional_attributes></additional_attributes></el
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-1. mostraCalendario()
+1. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>126</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3897</x><y>171</y><w>549</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 2. aggiungiTurnoCucina(cuoco?, data?, orarioInizio?, orarioFine?, evento?, tabelloneDeiTurni, compito?)
@@ -613,8 +613,8 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_att
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4401</x><y>18</y><w>27</w><h>1161</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;1270;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>585</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-6. mostraCalendario()</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>621</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>3879</x><y>576</y><w>558</w><h>342</h></coordinates><panel_attributes>ALT
+6. mostraTabellone()</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>621</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+tabellone</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>3879</x><y>576</y><w>558</w><h>342</h></coordinates><panel_attributes>ALT
 fg=#761C8C
 bg=#e7bfff
 lw=2
@@ -644,7 +644,7 @@ bg=#ffaaaa
 -.
 fg=#D3001B
 layer=1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>675</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-6a.1 L’attore che cerca di accedere al calendario non è l’organizzatore
+6a.1 L’attore che cerca di accedere al tabellone dei turni non è l’organizzatore
 fg=red
 layer=2</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>4401</x><y>684</y><w>18</w><h>18</h></coordinates><panel_attributes>type=termination
 fg=red
@@ -653,7 +653,7 @@ layer=2</panel_attributes><additional_attributes></additional_attributes></eleme
 fg=red
 lw=2
 layer=2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>720</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-6b.1 Il calendario non è accessibile
+6b.1 Il tabellone dei turni non è accessibile
 fg=red
 layer=2</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>774</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 6a.1 aproSchema()
@@ -676,10 +676,10 @@ lw=2
 layer=2</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>864</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 6a.1a.1 Lo schema non esiste
 fg=red
-layer=2</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3906</x><y>936</y><w>540</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+layer=2</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3897</x><y>936</y><w>558</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>30;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>981</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+bg=#F2F1EF</panel_attributes><additional_attributes>40;20;570;20</additional_attributes></element><element><id>Relation</id><coordinates><x>3924</x><y>981</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>3888</x><y>1044</y><w>549</w><h>90</h></coordinates><panel_attributes>OPT
@@ -694,10 +694,10 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_att
 fg=#808080
 bg=#F2F1EF
 layer=-1</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>81</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-1. mostraCalendario()
+1. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>126</y><w>495</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4536</x><y>171</y><w>531</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 2. aggiungiTurnoCucina(cuoco?, data?, orarioInizio?, orarioFine?, evento?, tabelloneDeiTurni compito?)
@@ -730,13 +730,13 @@ bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_att
 ok
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>585</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-6. mostraCalendario()
+6. mostraTabellone()
 fg=#808080
 bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>630</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-calendario
+tabellone
 fg=#808080
-bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4536</x><y>693</y><w>540</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)</panel_attributes><additional_attributes>30;20;560;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>747</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
+bg=#F2F1EF</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4527</x><y>693</y><w>558</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+7. aggiungoTurnoServizio(servizio, oraInizio?, oraFine?, addettoServizio?, luogo?, data?, tabelloneDeiTurni)</panel_attributes><additional_attributes>40;20;570;20</additional_attributes></element><element><id>Relation</id><coordinates><x>4554</x><y>747</y><w>504</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
 ok</panel_attributes><additional_attributes>10;20;540;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>4509</x><y>684</y><w>567</w><h>657</h></coordinates><panel_attributes>ALT
 fg=#761C8C
 bg=#e7bfff
