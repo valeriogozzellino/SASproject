@@ -453,7 +453,7 @@ layer=2</panel_attributes><additional_attributes></additional_attributes></eleme
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2368</x><y>616</y><w>440</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2368</x><y>672</y><w>440</w><h>32</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-4b.1 eliminazioneTurniRicorrenti(insieme T di Turni)
+4b.1 eliminazioneTurniRicorrenti(turno)
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2368</x><y>704</y><w>440</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
 ok
 fg=#9E1C8C</panel_attributes><additional_attributes>10;20;530;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>2336</x><y>776</y><w>488</w><h>80</h></coordinates><panel_attributes>OPT
