@@ -1,19 +1,18 @@
-<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>720</x><y>0</y><w>306</w><h>27</h></coordinates><panel_attributes>halign=center
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>640</x><y>0</y><w>272</w><h>24</h></coordinates><panel_attributes>halign=center
 *2 - addKitchenShift*
 lw=0
 fontsize=20
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>603</x><y>162</y><w>180</w><h>27</h></coordinates><panel_attributes>shiftMgr: shiftManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>189</x><y>144</y><w>90</w><h>63</h></coordinates><panel_attributes>UI</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>225</x><y>198</y><w>27</w><h>1746</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1920</additional_attributes></element><element><id>Relation</id><coordinates><x>684</x><y>180</y><w>27</w><h>1755</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1930</additional_attributes></element><element><id>Relation</id><coordinates><x>225</x><y>243</y><w>477</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-addKitchenShift(startTime?, endTime?, cook?, event?, task?, date)</panel_attributes><additional_attributes>510;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>684</x><y>261</y><w>18</w><h>1521</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1035</x><y>459</y><w>171</w><h>36</h></coordinates><panel_attributes>newShift: Shift</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>225</x><y>396</y><w>477</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;510;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1107</x><y>486</y><w>27</w><h>1161</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1270</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>1620</y><w>144</w><h>63</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-notifyAddShift()</panel_attributes><additional_attributes>10;10;50;10;50;50;20;50</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>279</y><w>189</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-getCurrentUser()</panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>684</x><y>315</y><w>198</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-user</panel_attributes><additional_attributes>10;20;200;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>864</x><y>297</y><w>18</w><h>36</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>864</x><y>180</y><w>27</w><h>189</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>792</x><y>162</y><w>162</w><h>27</h></coordinates><panel_attributes>usrMng: UserManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>684</x><y>468</y><w>369</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-createShift(startTime?, endTime?, cook?, event?, task?, date?)</panel_attributes><additional_attributes>390;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>702</x><y>1665</y><w>18</w><h>90</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1107</x><y>504</y><w>18</w><h>981</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1116</x><y>522</y><w>162</w><h>63</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-newShift.date = date</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1116</x><y>972</y><w>207</w><h>63</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-newShift.endTime = endTime</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>837</x><y>819</y><w>585</w><h>216</h></coordinates><panel_attributes>OPT [endTime != null]
-fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1548</x><y>1359</y><w>171</w><h>18</h></coordinates><panel_attributes>shiftMrg.shiftsBoard: List&lt;Shift&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1620</x><y>1368</y><w>27</w><h>279</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;290</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>864</y><w>432</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-checkOverlap(endTime)</panel_attributes><additional_attributes>460;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>225</x><y>918</y><w>486</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;520;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>369</y><w>1728</w><h>1440</h></coordinates><panel_attributes>ALT 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>536</x><y>144</y><w>160</w><h>24</h></coordinates><panel_attributes>shiftMgr: shiftManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>168</x><y>128</y><w>80</w><h>56</h></coordinates><panel_attributes>UI</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>176</y><w>24</w><h>1552</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1920</additional_attributes></element><element><id>Relation</id><coordinates><x>608</x><y>160</y><w>24</w><h>1560</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1930</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>216</y><w>424</w><h>32</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+addKitchenShift(startTime?, endTime?, cook?, event?, task?, date)</panel_attributes><additional_attributes>510;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>608</x><y>232</y><w>16</w><h>1352</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>920</x><y>408</y><w>152</w><h>32</h></coordinates><panel_attributes>newShift: Shift</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>352</y><w>424</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;510;20</additional_attributes></element><element><id>Relation</id><coordinates><x>984</x><y>432</y><w>24</w><h>1032</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1270</additional_attributes></element><element><id>Relation</id><coordinates><x>616</x><y>248</y><w>168</w><h>32</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+getCurrentUser()</panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>608</x><y>280</y><w>176</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+user</panel_attributes><additional_attributes>10;20;200;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>768</x><y>264</y><w>16</w><h>32</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>768</x><y>160</y><w>24</w><h>168</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>704</x><y>144</y><w>144</w><h>24</h></coordinates><panel_attributes>usrMng: UserManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>608</x><y>416</y><w>328</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+createShift(startTime?, endTime?, cook?, event?, task?, date?)</panel_attributes><additional_attributes>390;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>984</x><y>448</y><w>16</w><h>872</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>992</x><y>464</y><w>144</w><h>56</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+newShift.date = date</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>992</x><y>864</y><w>184</w><h>56</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+newShift.endTime = endTime</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>744</x><y>728</y><w>520</w><h>192</h></coordinates><panel_attributes>OPT [endTime != null]
+fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1376</x><y>1208</y><w>152</w><h>16</h></coordinates><panel_attributes>shiftMrg.shiftsBoard: List&lt;Shift&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1440</x><y>1216</y><w>24</w><h>248</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;290</additional_attributes></element><element><id>Relation</id><coordinates><x>616</x><y>768</y><w>384</w><h>32</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+checkOverlap(endTime)</panel_attributes><additional_attributes>460;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>816</y><w>432</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;520;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>328</y><w>1536</w><h>1280</h></coordinates><panel_attributes>ALT 
 [ !user.isOrganizer() || date &gt; currentdate]
 fg=#761C8C
 lw=1
@@ -24,36 +23,26 @@ halign=left
 
 
 -.
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>963</y><w>432</w><h>36</h></coordinates><panel_attributes>lt=&lt;..
-ok</panel_attributes><additional_attributes>460;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1620</x><y>1413</y><w>18</w><h>135</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1116</x><y>1332</y><w>171</w><h>63</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-newShift.cook = cook</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>909</x><y>1323</y><w>423</w><h>108</h></coordinates><panel_attributes>ALT [cook.isAvailable]
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>616</x><y>856</y><w>384</w><h>32</h></coordinates><panel_attributes>lt=&lt;..
+ok</panel_attributes><additional_attributes>460;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1440</x><y>1256</y><w>16</w><h>120</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>992</x><y>1184</y><w>152</w><h>56</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+newShift.cook = cook</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>808</x><y>1176</y><w>376</w><h>96</h></coordinates><panel_attributes>ALT [cook.isAvailable]
 fg=#D3001B
 --
 
 
 
 -.
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1116</x><y>747</y><w>216</w><h>63</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-newShift.startTime = startTime</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>837</x><y>585</y><w>585</w><h>225</h></coordinates><panel_attributes>OPT [startTime != null]
-fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>621</y><w>441</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-checkOverlap(startTime)</panel_attributes><additional_attributes>470;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>729</y><w>432</w><h>36</h></coordinates><panel_attributes>lt=&lt;..
-ok</panel_attributes><additional_attributes>460;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1116</x><y>1197</y><w>162</w><h>63</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-newShift.task = task</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>837</x><y>1170</y><w>585</w><h>108</h></coordinates><panel_attributes>OPT [task != null]
-fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1116</x><y>1080</y><w>180</w><h>72</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-newShift.event = event</panel_attributes><additional_attributes>10;10;50;10;50;60;10;60</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>837</x><y>1053</y><w>585</w><h>108</h></coordinates><panel_attributes>OPT [event != null]
-fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>225</x><y>675</y><w>477</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;510;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1116</x><y>1449</y><w>522</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-addShift(newShift)</panel_attributes><additional_attributes>10;20;560;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>153</x><y>612</y><w>1395</w><h>189</h></coordinates><panel_attributes>ALT
-fg=#D3001B
---
-
-
--.
-
-
-
-
--.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>153</x><y>855</y><w>1395</w><h>171</h></coordinates><panel_attributes>ALT
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>992</x><y>664</y><w>192</w><h>56</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+newShift.startTime = startTime</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>744</x><y>520</y><w>520</w><h>200</h></coordinates><panel_attributes>OPT [startTime != null]
+fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>616</x><y>552</y><w>392</w><h>32</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+checkOverlap(startTime)</panel_attributes><additional_attributes>470;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>616</x><y>648</y><w>384</w><h>32</h></coordinates><panel_attributes>lt=&lt;..
+ok</panel_attributes><additional_attributes>460;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>992</x><y>1064</y><w>144</w><h>56</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+newShift.task = task</panel_attributes><additional_attributes>10;10;50;10;50;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>744</x><y>1040</y><w>520</w><h>96</h></coordinates><panel_attributes>OPT [task != null]
+fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>992</x><y>960</y><w>160</w><h>64</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+newShift.event = event</panel_attributes><additional_attributes>10;10;50;10;50;60;10;60</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>744</x><y>936</y><w>520</w><h>96</h></coordinates><panel_attributes>OPT [event != null]
+fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>600</y><w>424</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;510;20</additional_attributes></element><element><id>Relation</id><coordinates><x>992</x><y>1288</y><w>464</w><h>32</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+addShift(newShift)</panel_attributes><additional_attributes>10;20;560;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>136</x><y>544</y><w>1240</w><h>168</h></coordinates><panel_attributes>ALT
 fg=#D3001B
 --
 
@@ -63,8 +52,21 @@ fg=#D3001B
 
 
 
--.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>837</x><y>1287</y><w>585</w><h>162</h></coordinates><panel_attributes>OPT
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>136</x><y>760</y><w>1240</w><h>152</h></coordinates><panel_attributes>ALT
+fg=#D3001B
+--
+
+
+-.
+
+
+
+
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>744</x><y>1144</y><w>520</w><h>144</h></coordinates><panel_attributes>OPT
 [cook != null]
-fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>1395</y><w>432</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;460;20</additional_attributes></element><element><id>Relation</id><coordinates><x>225</x><y>1404</y><w>477</w><h>36</h></coordinates><panel_attributes>lt=&lt;.
-throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;510;20</additional_attributes></element></diagram>
+fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>616</x><y>1240</y><w>384</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;460;20</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>1248</y><w>424</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;510;20</additional_attributes></element><element><id>Relation</id><coordinates><x>632</x><y>1504</y><w>528</w><h>32</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+updateAddShift(shift)</panel_attributes><additional_attributes>10;20;640;20</additional_attributes></element><element><id>Relation</id><coordinates><x>616</x><y>1440</y><w>128</w><h>56</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+notifyAddShift()</panel_attributes><additional_attributes>10;10;50;10;50;50;20;50</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>624</x><y>1480</y><w>16</w><h>96</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1144</x><y>1472</y><w>16</w><h>104</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1144</x><y>1456</y><w>24</w><h>320</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;380</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1080</x><y>1440</y><w>144</w><h>24</h></coordinates><panel_attributes>ShiftEventReceiver</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>392</x><y>1488</y><w>848</w><h>64</h></coordinates><panel_attributes>LOOP for all er in eventReceiver
+fg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>
