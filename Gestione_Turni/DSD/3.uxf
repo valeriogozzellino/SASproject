@@ -1,0 +1,34 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLFrame</id><coordinates><x>240</x><y>450</y><w>1210</w><h>230</h></coordinates><panel_attributes>ALT
+fg=#D3001B
+--
+
+
+-.
+
+
+
+
+
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>700</x><y>20</y><w>200</w><h>30</h></coordinates><panel_attributes>shiftMgr: shiftManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>110</y><w>530</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+groupShift(shiftList: List&lt;Shift&gt;)</panel_attributes><additional_attributes>510;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>150</y><w>210</w><h>40</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+getCurrentUser()</panel_attributes><additional_attributes>10;20;190;20</additional_attributes></element><element><id>Relation</id><coordinates><x>790</x><y>190</y><w>220</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+user</panel_attributes><additional_attributes>10;20;200;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>990</x><y>170</y><w>20</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>910</x><y>20</y><w>180</w><h>30</h></coordinates><panel_attributes>usrMng: UserManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>240</x><y>0</y><w>100</w><h>70</h></coordinates><panel_attributes>UI</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>60</y><w>30</w><h>1610</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1590</additional_attributes></element><element><id>Relation</id><coordinates><x>790</x><y>60</y><w>30</w><h>1620</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1600</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>790</x><y>130</y><w>20</w><h>1340</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>990</x><y>40</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>990</x><y>170</y><w>20</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>260</y><w>540</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;520;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1190</x><y>20</y><w>190</w><h>30</h></coordinates><panel_attributes>shiftMrg.shiftsBoard: List&lt;Shift&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1270</x><y>370</y><w>20</w><h>390</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1270</x><y>40</y><w>30</w><h>1090</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1070</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>330</y><w>170</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+sortShift(shiftList)</panel_attributes><additional_attributes>10;60;50;60;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>460</y><w>490</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+contain</panel_attributes><additional_attributes>10;20;470;20</additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>530</y><w>530</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;510;20</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>620</y><w>490</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+remove(shift)</panel_attributes><additional_attributes>470;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>1290</y><w>180</w><h>70</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+notifyRemoveShift()</panel_attributes><additional_attributes>10;10;50;10;50;50;20;50</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>810</x><y>1340</y><w>20</w><h>120</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>1370</y><w>830</w><h>40</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+updateDeleteShift(removedShift)</panel_attributes><additional_attributes>10;20;810;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>570</x><y>1360</y><w>1110</w><h>80</h></coordinates><panel_attributes>LOOP for all er in eventReceiver
+fg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1610</x><y>40</y><w>30</w><h>1560</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;1540</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1610</x><y>1330</y><w>20</w><h>130</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1530</x><y>20</y><w>180</w><h>30</h></coordinates><panel_attributes>ShiftEventReceiver</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>230</y><w>1920</w><h>1350</h></coordinates><panel_attributes>ALT 
+[ !user.isOrganizer() || date &lt; currentdate]
+fg=#761C8C
+lw=1
+layer=-10
+halign=left
+--
+
+
+
+-.
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
