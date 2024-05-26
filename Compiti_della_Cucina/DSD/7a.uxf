@@ -1,0 +1,45 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLPackage</id><coordinates><x>340</x><y>80</y><w>100</w><h>70</h></coordinates><panel_attributes>UI</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>140</y><w>30</w><h>610</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;590</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>170</y><w>410</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+deletePreviousStep(currentTask)
+</panel_attributes><additional_attributes>390;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>0</y><w>340</w><h>30</h></coordinates><panel_attributes>halign=center
+*6 - deletePreviousStep*
+lw=0
+fontsize=20
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>340</y><w>240</w><h>70</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+currentTask.previousTask = null</panel_attributes><additional_attributes>10;10;40;10;40;50;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>660</y><w>410</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogiException</panel_attributes><additional_attributes>10;20;390;20</additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>510</y><w>270</w><h>60</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+notifyTaskChanged(currentTask)</panel_attributes><additional_attributes>10;10;70;10;70;40;20;40</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1130</x><y>500</y><w>170</w><h>30</h></coordinates><panel_attributes>er: KitchenEventReceiver</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1230</x><y>520</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>780</x><y>550</y><w>20</w><h>100</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>540</x><y>560</y><w>890</w><h>70</h></coordinates><panel_attributes>LOOP for all er in eventReceivers
+fg=blue
+bg=#8CB4FF</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>790</x><y>570</y><w>460</w><h>40</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+updateTaskChanged(currentResume, currentTask)</panel_attributes><additional_attributes>10;20;440;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1230</x><y>590</y><w>20</w><h>30</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>730</x><y>100</y><w>110</w><h>40</h></coordinates><panel_attributes>kitchenMgr:
+KitchenManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>130</y><w>30</w><h>620</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;600</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>770</x><y>180</y><w>20</w><h>530</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>920</x><y>100</y><w>100</w><h>40</h></coordinates><panel_attributes>userMgr: 
+UserManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>190</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+getCurrentUser()</panel_attributes><additional_attributes>10;20;180;20</additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>220</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+user</panel_attributes><additional_attributes>10;20;180;20</additional_attributes></element><element><id>Relation</id><coordinates><x>960</x><y>130</y><w>30</w><h>170</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>960</x><y>210</y><w>20</w><h>30</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>0</x><y>270</y><w>1500</w><h>470</h></coordinates><panel_attributes>ALT [user.isChef()
+&amp;&amp; currentResume != null
+&amp;&amp; currentTask != null
+&amp;&amp; currentResume.isSummarized(currentTask)]
+fg=#761C8C
+lw=1
+layer=-10
+halign=left
+--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-.</panel_attributes><additional_attributes></additional_attributes></element></diagram>
