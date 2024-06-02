@@ -211,7 +211,7 @@ fg=white</panel_attributes><additional_attributes></additional_attributes></elem
 *operations methods*
 
 +showShiftBoard(event: Event): ArrayList&lt;Shift&gt;
-+addKitchenShift(startTime?: DateTime, endTime?: DateTime, cook?: Cook, event?: Event, task?: Task, date?: DateTime)
++addKitchenShift(startTime: DateTime, endTime: DateTime, cook?: Cook, event: Event, task?: Task, date: DateTime)
 +checkOverlap(): Boolean
 +getShifts(); ArrayList&lt;Shift&gt;
 +setTurnComplete(turn: Turn, complete: boolean)
