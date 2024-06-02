@@ -1,14 +1,14 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLGeneric</id><coordinates><x>490</x><y>120</y><w>200</w><h>30</h></coordinates><panel_attributes>kitchenMgr: KitchenManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>220</x><y>100</y><w>100</w><h>70</h></coordinates><panel_attributes>UI</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>160</y><w>30</w><h>820</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;800</additional_attributes></element><element><id>Relation</id><coordinates><x>580</x><y>140</y><w>30</w><h>880</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;860</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>200</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-assignTaskTime(task, timeTask)</panel_attributes><additional_attributes>320;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>580</x><y>220</y><w>20</w><h>730</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>810</x><y>110</y><w>230</w><h>40</h></coordinates><panel_attributes>shiftManager:
-ShiftManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>290</x><y>0</y><w>340</w><h>30</h></coordinates><panel_attributes>halign=center
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLGeneric</id><coordinates><x>450</x><y>120</y><w>200</w><h>30</h></coordinates><panel_attributes>kitchenMgr: KitchenManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>180</x><y>100</y><w>100</w><h>70</h></coordinates><panel_attributes>UI</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>160</y><w>30</w><h>820</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;800</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>140</y><w>30</w><h>880</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;860</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>200</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+assignTaskTime(task, timeTask)</panel_attributes><additional_attributes>320;20;10;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>540</x><y>220</y><w>20</w><h>730</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>770</x><y>110</y><w>230</w><h>40</h></coordinates><panel_attributes>shiftManager:
+ShiftManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>250</x><y>0</y><w>340</w><h>30</h></coordinates><panel_attributes>halign=center
 *6 - assignTaskTime*
 lw=0
 fontsize=20
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>910</x><y>140</y><w>30</w><h>690</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;670</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>910</x><y>630</y><w>20</w><h>60</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>250</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-getCurrentUser()</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>290</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-user</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>740</x><y>270</y><w>20</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>740</x><y>140</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>700</x><y>110</y><w>100</w><h>40</h></coordinates><panel_attributes>usrMng: 
-UserManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>370</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;320;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>60</x><y>330</y><w>1140</w><h>600</h></coordinates><panel_attributes>ALT 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>870</x><y>140</y><w>30</w><h>690</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;670</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>870</x><y>630</y><w>20</w><h>60</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>250</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+getCurrentUser()</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>290</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+user</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>700</x><y>270</y><w>20</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>700</x><y>140</y><w>30</w><h>200</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>660</x><y>110</y><w>100</w><h>40</h></coordinates><panel_attributes>usrMng: 
+UserManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>370</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;320;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>20</x><y>330</y><w>1140</w><h>600</h></coordinates><panel_attributes>ALT 
 [ !user.isChef() ]
 fg=#761C8C
 lw=1
@@ -18,7 +18,7 @@ halign=left
 
 
 
--.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>90</x><y>460</y><w>1080</w><h>420</h></coordinates><panel_attributes>ALT 
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>50</x><y>460</y><w>1080</w><h>420</h></coordinates><panel_attributes>ALT 
 [ task.shift == null ]
 fg=#761C8C
 lw=1
@@ -31,8 +31,8 @@ halign=left
 
 
 
--.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>480</y><w>220</w><h>70</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-task.time = timeTask</panel_attributes><additional_attributes>10;10;90;10;90;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>140</x><y>720</y><w>990</w><h>140</h></coordinates><panel_attributes>ALT 
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>480</y><w>220</w><h>70</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+task.time = timeTask</panel_attributes><additional_attributes>10;10;90;10;90;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>100</x><y>720</y><w>990</w><h>140</h></coordinates><panel_attributes>ALT 
 [(shift.endTime - shift.startTime) &gt;= timeTask ]
 fg=#D3001B
 lw=1
@@ -41,8 +41,8 @@ halign=left
 
 
 
--.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>630</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-getShift(task.shift)</panel_attributes><additional_attributes>10;20;320;20</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>660</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-shift</panel_attributes><additional_attributes>10;20;320;20</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>820</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
-throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;320;20</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>730</y><w>220</w><h>70</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>630</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
+getShift(task.shift)</panel_attributes><additional_attributes>10;20;320;20</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>660</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+shift</panel_attributes><additional_attributes>10;20;320;20</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>820</y><w>340</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+throw UseCaseLogicException</panel_attributes><additional_attributes>10;20;320;20</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>730</y><w>220</w><h>70</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
 task.time = timeTask</panel_attributes><additional_attributes>10;10;90;10;90;50;10;50</additional_attributes></element></diagram>
