@@ -197,12 +197,15 @@ fg=white
 m1=0..n
 requiredPreparations
 fg=white</panel_attributes><additional_attributes>80;10;100;10;100;190;10;190</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1036</x><y>679</y><w>875</w><h>476</h></coordinates><panel_attributes>ShiftManagement
-fg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1071</x><y>714</y><w>441</w><h>224</h></coordinates><panel_attributes>ShiftManager
+fg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1071</x><y>714</y><w>441</w><h>252</h></coordinates><panel_attributes>ShiftManager
 --
 *event sender methods*
 
 -notifyAddShift(shift: Shift)
-
+-notifyRemoveShift(shift: Shift)
+-notifyGroupedShift(shiftList: ArrayList&lt;Shift&gt;)
+-notifyaddRecurrentShift(shiftList: ArrayList&lt;Shift&gt;)
+-notifyRemoveRecurrentShift(shiftDeletedList: ArrayList&lt;Shift&gt;)
 
 --
 *operations methods*
@@ -280,7 +283,7 @@ fg=white</panel_attributes><additional_attributes></additional_attributes></elem
 +updateAddShift(newShift: Shift)
 +updateDeleteShift(removedShift: Shift)
 +updateAddRecurrentShift(shiftList: ArrayList&lt;Shift&gt;)
-
++updateDeleteRecurrentShift(removedShifts: ArrayList&lt;Shift&gt;)
 
 
 </panel_attributes><additional_attributes></additional_attributes></element></diagram>
