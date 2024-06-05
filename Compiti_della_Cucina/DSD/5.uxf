@@ -5,7 +5,7 @@ Task</panel_attributes><additional_attributes></additional_attributes></element>
 *5 - assignTask*
 lw=0
 fontsize=20
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>224</x><y>434</y><w>630</w><h>175</h></coordinates><panel_attributes>OPT [turn != null]
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>224</x><y>434</y><w>630</w><h>175</h></coordinates><panel_attributes>OPT [shift != null]
 fg=#128C86
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>336</x><y>301</y><w>259</w><h>28</h></coordinates><panel_attributes>lt=.&gt;
 create(tbp, cook?, shift?,time?,quantity?)</panel_attributes><additional_attributes>10;20;350;20</additional_attributes></element><element><id>Relation</id><coordinates><x>595</x><y>329</y><w>21</w><h>518</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;720</additional_attributes></element><element><id>Relation</id><coordinates><x>336</x><y>770</y><w>273</w><h>28</h></coordinates><panel_attributes>lt=&lt;.
@@ -33,7 +33,7 @@ halign=left
 
 -.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>49</x><y>259</y><w>294</w><h>28</h></coordinates><panel_attributes>lt=&lt;.
 throw UseCaseLogiException</panel_attributes><additional_attributes>10;20;400;20</additional_attributes></element><element><id>Relation</id><coordinates><x>336</x><y>560</y><w>273</w><h>28</h></coordinates><panel_attributes>lt=&lt;.
-throw UseCaseLogiException</panel_attributes><additional_attributes>10;20;370;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>294</x><y>462</y><w>553</w><h>140</h></coordinates><panel_attributes>ALT [cook.isAvailable(turn)]
+throw UseCaseLogiException</panel_attributes><additional_attributes>10;20;370;20</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>294</x><y>462</y><w>553</w><h>140</h></coordinates><panel_attributes>ALT [cook.isAvailable(shift)]
 
 --
 
