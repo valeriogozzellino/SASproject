@@ -1,5 +1,8 @@
 package catering.businesslogic.kitchen;
 
+import catering.businesslogic.recipe.AbstractRecipe;
+import catering.businesslogic.shift.Shift;
+
 public interface KitchenEventReceiver {
     default void updateResumeCreated(ServiceResume resume) {}
     default void updateTaskRemoved(ServiceResume resume, Task task) {}
