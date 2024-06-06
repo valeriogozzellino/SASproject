@@ -1,7 +1,7 @@
 <diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLPackage</id><coordinates><x>228</x><y>48</y><w>60</w><h>42</h></coordinates><panel_attributes>UI</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>252</x><y>84</y><w>18</w><h>372</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;10;600</additional_attributes></element><element><id>Relation</id><coordinates><x>252</x><y>102</y><w>246</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
 setPreviousStep(previousTask, currentTask)
 </panel_attributes><additional_attributes>390;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>384</x><y>0</y><w>204</w><h>18</h></coordinates><panel_attributes>halign=center
-*6 - setPreviousStep*
+*7 - setPreviousStep*
 lw=0
 fontsize=20
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>204</y><w>174</w><h>42</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
