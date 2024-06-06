@@ -9,6 +9,7 @@ import org.w3c.dom.events.Event;
 
 import catering.businesslogic.CatERing;
 import catering.businesslogic.UseCaseLogicException;
+import catering.businesslogic.event.EventInfo;
 import catering.businesslogic.event.EventManager;
 import catering.businesslogic.event.ServiceInfo;
 import catering.businesslogic.kitchen.*;
@@ -92,6 +93,13 @@ public class KitchenManager {
      * ------------------------------
      */
 
+    /**
+     * generate new Resume if it doesn't exist
+     * 
+     * @param service
+     * @return
+     * @throws UseCaseLogicException
+     */
     public ServiceResume generateResume(ServiceInfo service) throws UseCaseLogicException {
         if (service == null)
             throw new NullPointerException("Servizio non valorizzato");
@@ -103,7 +111,7 @@ public class KitchenManager {
             throw new UseCaseLogicException("L'utente non è autenticato come chef");
 
         EventManager eventMgr = CatERing.getInstance().getEventManager();
-        Event event = eventMgr.getEvent(service);
+        EventInfo event = eventMgr.getEvent(service);
 
         if (event == null || !event.isChefInCharge(user) || service.getMenu() == null)
             throw new UseCaseLogicException("L'evento di appartenenza non è valido.");
@@ -428,16 +436,26 @@ public class KitchenManager {
     // return resume.getTasks();
     // }
 
-    // public List<ServiceResume> getResumes() {
-    // return resumes;
-    // }
+    /**
+     * 
+     * @return List<ServiceResume>
+     */
+    public List<ServiceResume> getResumes() {
+        return resumes;
+    }
 
-    // public boolean exists(Service resume) {
-    // for (ServiceResume r: resumes)
-    // if(r.getReferredService().equals(resume))
-    // return true;
-    // return false;
-    // }
+    /**
+     * check if the serviceResume exist for service referred
+     * 
+     * @param resume
+     * @return boolean
+     */
+    public boolean exists(ServiceInfo resume) {
+        for (ServiceResume r : resumes)
+            if (r.getReferredService().equals(resume))
+                return true;
+        return false;
+    }
 
     // public List<ServiceResume> getCurrentResumes() {
     // return currentResumes;

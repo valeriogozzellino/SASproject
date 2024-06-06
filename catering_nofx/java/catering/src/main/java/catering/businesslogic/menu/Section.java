@@ -25,7 +25,7 @@ public class Section {
         this.id = 0;
         this.name = s.name;
         this.sectionItems = new ArrayList<>();
-        for (MenuItem original: s.sectionItems) {
+        for (MenuItem original : s.sectionItems) {
             this.sectionItems.add(new MenuItem(original));
         }
     }
@@ -33,7 +33,6 @@ public class Section {
     public void addItem(MenuItem mi) {
         this.sectionItems.add(mi);
     }
-
 
     public void updateItems(ArrayList<MenuItem> newItems) {
         ArrayList<MenuItem> updatedList = new ArrayList<>();
@@ -53,12 +52,12 @@ public class Section {
     }
 
     private MenuItem findItemById(int id) {
-        for (MenuItem mi: sectionItems) {
-            if (mi.getId() == id) return mi;
+        for (MenuItem mi : sectionItems) {
+            if (mi.getId() == id)
+                return mi;
         }
         return null;
     }
-
 
     public int getItemPosition(MenuItem mi) {
         return this.sectionItems.indexOf(mi);
@@ -70,7 +69,7 @@ public class Section {
 
     public String testString() {
         String result = name + "\n";
-        for (MenuItem mi: sectionItems) {
+        for (MenuItem mi : sectionItems) {
             result += "\t" + mi.toString() + "\n";
         }
         return result;
@@ -82,6 +81,10 @@ public class Section {
 
     public String getName() {
         return name;
+    }
+
+    public List<MenuItem> getSectionItems() {
+        return sectionItems;
     }
 
     public void setName(String name) {
@@ -96,7 +99,6 @@ public class Section {
         return sectionItems.size();
     }
 
-
     public void moveItem(MenuItem mi, int position) {
         sectionItems.remove(mi);
         sectionItems.add(position, mi);
@@ -105,7 +107,6 @@ public class Section {
     public void removeItem(MenuItem mi) {
         sectionItems.remove(mi);
     }
-
 
     // STATIC METHODS FOR PERSISTENCE
     public static void saveNewSection(int menuid, Section sec, int posInMenu) {
@@ -139,13 +140,12 @@ public class Section {
         });
 
         // salva le voci delle sezioni
-        for (Section s: sections) {
+        for (Section s : sections) {
             if (s.sectionItems.size() > 0) {
                 MenuItem.saveAllNewItems(menuid, s.id, s.sectionItems);
             }
         }
     }
-
 
     public static ArrayList<Section> loadSectionsFor(int menu_id) {
         ArrayList<Section> result = new ArrayList<>();
@@ -160,14 +160,13 @@ public class Section {
             }
         });
 
-        for (Section s: result) {
+        for (Section s : result) {
             // load items
             s.sectionItems = MenuItem.loadItemsFor(menu_id, s.id);
         }
 
         return result;
     }
-
 
     public static void deleteSection(int menu_id, Section s) {
         // delete items
@@ -179,13 +178,11 @@ public class Section {
         PersistenceManager.executeUpdate(secdel);
     }
 
-
     public static void saveSectionName(Section s) {
         String upd = "UPDATE MenuSections SET name = '" + PersistenceManager.escapeString(s.name) + "'" +
                 " WHERE id = " + s.id;
         PersistenceManager.executeUpdate(upd);
     }
-
 
     public static void saveItemOrder(Section s) {
         String upd = "UPDATE MenuItems SET position = ? WHERE id = ?";

@@ -7,19 +7,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-public class Recipe {
+public class Recipe extends AbstractRecipe {
     private static Map<Integer, Recipe> all = new HashMap<>();
 
     private int id;
     private String name;
 
-    private Recipe() {
-
+    public Recipe(String name) {
+        super(name);
     }
 
-    public Recipe(String name) {
-        id = 0;
-        this.name = name;
+    public Recipe(String name, int id) {
+        super(name);
+        this.id = id;
     }
 
     public String getName() {
@@ -67,19 +67,19 @@ public class Recipe {
     }
 
     public static Recipe loadRecipeById(int id) {
-        if (all.containsKey(id)) return all.get(id);
-        Recipe rec = new Recipe();
+        if (all.containsKey(id))
+            return all.get(id);
+        Recipe rec = new Recipe("");
         String query = "SELECT * FROM Recipes WHERE id = " + id;
         PersistenceManager.executeQuery(query, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {
-                    rec.name = rs.getString("name");
-                    rec.id = id;
-                    all.put(rec.id, rec);
+                rec.name = rs.getString("name");
+                rec.id = id;
+                all.put(rec.id, rec);
             }
         });
         return rec;
     }
-
 
 }

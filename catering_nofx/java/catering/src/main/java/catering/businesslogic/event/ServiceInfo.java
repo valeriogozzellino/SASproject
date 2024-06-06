@@ -1,5 +1,7 @@
 package catering.businesslogic.event;
 
+import catering.businesslogic.menu.Menu;
+import catering.businesslogic.menu.MenuItem;
 import catering.persistence.PersistenceManager;
 import catering.persistence.ResultHandler;
 
@@ -16,6 +18,7 @@ public class ServiceInfo implements EventItemInfo {
     private Time timeStart;
     private Time timeEnd;
     private int participants;
+    private Menu menu; // Valutare se inserirlo qui
 
     public ServiceInfo(String name) {
         this.name = name;
@@ -24,7 +27,6 @@ public class ServiceInfo implements EventItemInfo {
     public int getId() {
         return id;
     }
-
 
     public String toString() {
         return name + ": " + date + " (" + timeStart + "-" + timeEnd + "), " + participants + " pp.";
@@ -51,5 +53,9 @@ public class ServiceInfo implements EventItemInfo {
         });
 
         return result;
+    }
+
+    public Menu getMenu() {
+        return menu;
     }
 }

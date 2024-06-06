@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Menu {
@@ -42,7 +43,6 @@ public class Menu {
 
         this.featuresMap = new HashMap<>();
 
-
         for (String s : menuFeatures) {
             this.featuresMap.put(s, false);
         }
@@ -59,17 +59,17 @@ public class Menu {
         this.inUse = false;
         this.owner = owner;
         this.featuresMap = new HashMap<>();
-        for (String feat: m.featuresMap.keySet()) {
+        for (String feat : m.featuresMap.keySet()) {
             this.featuresMap.put(feat, m.featuresMap.get(feat));
         }
 
         this.sections = new ArrayList<>();
-        for (Section original: m.sections) {
+        for (Section original : m.sections) {
             this.sections.add(new Section(original));
         }
 
         this.freeItems = new ArrayList<>();
-        for (MenuItem original: m.freeItems) {
+        for (MenuItem original : m.freeItems) {
             this.freeItems.add(new MenuItem(original));
         }
 
@@ -116,7 +116,6 @@ public class Menu {
                 "pubblicato," + (inUse ? " " : " non ") + "in uso";
     }
 
-
     public int getId() {
         return id;
     }
@@ -136,7 +135,6 @@ public class Menu {
         freeItems.add(new MenuItem(all[4]));
         freeItems.add(new MenuItem(all[5]));
     }
-
 
     public Section addSection(String name) {
         Section sec = new Section(name);
@@ -167,7 +165,8 @@ public class Menu {
             if (sec.getItemPosition(mi) >= 0)
                 return sec;
         }
-        if (freeItems.indexOf(mi) >= 0) return null;
+        if (freeItems.indexOf(mi) >= 0)
+            return null;
         throw new IllegalArgumentException();
     }
 
@@ -183,11 +182,9 @@ public class Menu {
         this.title = title;
     }
 
-
     public void setPublished(boolean b) {
         published = b;
     }
-
 
     public boolean isInUse() {
         return this.inUse;
@@ -220,7 +217,8 @@ public class Menu {
 
     private MenuItem findItemById(int id) {
         for (MenuItem mi : freeItems) {
-            if (mi.getId() == id) return mi;
+            if (mi.getId() == id)
+                return mi;
         }
         return null;
     }
@@ -244,11 +242,11 @@ public class Menu {
 
     private Section findSectionById(int id) {
         for (Section s : sections) {
-            if (s.getId() == id) return s;
+            if (s.getId() == id)
+                return s;
         }
         return null;
     }
-
 
     public void removeSection(Section s, boolean deleteItems) {
         if (!deleteItems) {
@@ -265,12 +263,10 @@ public class Menu {
         return freeItems.size();
     }
 
-
     public void moveSection(Section sec, int position) {
         sections.remove(sec);
         sections.add(position, sec);
     }
-
 
     public void changeItemSection(MenuItem mi, Section oldsec, Section sec) {
         if (oldsec == null) {
@@ -293,8 +289,10 @@ public class Menu {
 
     public void removeItem(MenuItem mi) {
         Section sec = getSectionForItem(mi);
-        if (sec == null) freeItems.remove(mi);
-        else sec.removeItem(mi);
+        if (sec == null)
+            freeItems.remove(mi);
+        else
+            sec.removeItem(mi);
     }
 
     // STATIC METHODS FOR PERSISTENCE
@@ -352,7 +350,6 @@ public class Menu {
         featuresToDB(m);
     }
 
-
     public static void saveMenuPublished(Menu m) {
         String upd = "UPDATE Menus SET published = " + m.published +
                 " WHERE id = " + m.getId();
@@ -378,7 +375,6 @@ public class Menu {
         });
     }
 
-
     public static void deleteMenu(Menu m) {
         // delete sections
         String delSec = "DELETE FROM MenuSections WHERE menu_id = " + m.id;
@@ -391,7 +387,6 @@ public class Menu {
         // delete features
         String delFeat = "DELETE FROM MenuFeatures WHERE menu_id = " + m.getId();
         PersistenceManager.executeUpdate(delFeat);
-
 
         String del = "DELETE FROM Menus WHERE id = " + m.getId();
         PersistenceManager.executeUpdate(del);
@@ -479,7 +474,7 @@ public class Menu {
             // find if "in use"
             String inuseQ = "SELECT * FROM Services WHERE approved_menu_id = " + m.id +
                     " OR " +
-                    "proposed_menu_id = "+ m.id;
+                    "proposed_menu_id = " + m.id;
             PersistenceManager.executeQuery(inuseQ, new ResultHandler() {
                 @Override
                 public void handle(ResultSet rs) throws SQLException {
@@ -488,7 +483,7 @@ public class Menu {
                 }
             });
         }
-        for (Menu m: newMenus) {
+        for (Menu m : newMenus) {
             loadedMenus.put(m.id, m);
         }
         return new ArrayList<Menu>(loadedMenus.values());
@@ -509,7 +504,6 @@ public class Menu {
             }
         });
     }
-
 
     public static void saveFreeItemOrder(Menu m) {
         String upd = "UPDATE MenuItems SET position = ? WHERE id = ?";

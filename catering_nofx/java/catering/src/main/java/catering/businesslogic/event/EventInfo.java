@@ -17,6 +17,7 @@ public class EventInfo implements EventItemInfo {
     private Date dateEnd;
     private int participants;
     private User organizer;
+    private User chef;
 
     private ArrayList<ServiceInfo> services;
 
@@ -57,5 +58,9 @@ public class EventInfo implements EventItemInfo {
             e.services = ServiceInfo.loadServiceInfoForEvent(e.id);
         }
         return all;
+    }
+
+    public boolean isChefInCharge(User user) {
+        return user.equals(chef);
     }
 }
