@@ -1,15 +1,11 @@
 package catering.businesslogic.shift;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.temporal.ChronoUnit;
 
-import catering.persistence.BatchUpdateHandler;
 import catering.persistence.PersistenceManager;
 
 public class Shift {
@@ -56,12 +52,13 @@ public class Shift {
         this.id = id;
     }
 
-    public int getDuration() {
-        // @TODO
-        long ore = ChronoUnit.HOURS.between(start, end);
-        long minuti = ChronoUnit.MINUTES.between(start, end);
-        long secondi = ChronoUnit.SECONDS.between(start, end);
-
+    /**
+     * 
+     * @return la durata del turno in minuti
+     */
+    public int getDuration(Shift shift) {
+        long durationInMinutes = ChronoUnit.MINUTES.between(shift.start, shift.end);
+        return (int) durationInMinutes;
     }
 
     @Override
@@ -76,7 +73,7 @@ public class Shift {
     }
 
     public static List<Shift> loadTurns() {
-        String stm = "SELECT * FROM shifts"; //// testareeeee
+        String stm = "SELECT * FROM shifts"; // TODO: test sulla tabella
         List<Shift> result = new ArrayList<>();
         PersistenceManager.executeQuery(stm, rs -> {
             Shift t = new Shift();
@@ -89,22 +86,4 @@ public class Shift {
 
         return result;
     }
-
-    // public static void update(Shift shift, boolean complete) {
-    // String stm = "UPDATE turns SET complete = ? WHERE id = ?";
-    // PersistenceManager.executeUpdate(stm, 1, new BatchUpdateHandler() {
-    // @Override
-    // public void handleBatchItem(PreparedStatement ps, int batchCount) throws
-    // SQLException {
-    // ps.setBoolean(1, complete);
-    // ps.setInt(2, shift.id);
-    // }
-
-    // @Override
-    // public void handleGeneratedIds(ResultSet rs, int count) throws SQLException {
-
-    // }
-    // });
-    // }
-
 }

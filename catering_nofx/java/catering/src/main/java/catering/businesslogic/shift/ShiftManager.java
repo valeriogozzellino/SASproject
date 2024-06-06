@@ -15,7 +15,7 @@ public class ShiftManager {
 
     private ShiftManager() {
         shifts = new ArrayList<>();
-        shifts.addAll(Shift.loadShifts());
+        shifts.addAll(Shift.loadTurns());
     }
 
     public List<Shift> getShifts() {

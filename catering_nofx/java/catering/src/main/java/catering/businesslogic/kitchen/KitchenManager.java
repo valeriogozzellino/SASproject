@@ -82,16 +82,9 @@ public class KitchenManager {
         eventReceivers.forEach(er -> er.updateAvailabilityAdded(resume, done));
     }
 
-    // private void notifyAvailabilityDeleted(ServiceResume resume, Availability
-    // done) {
-    // eventReceivers.forEach(er -> er.updateAvailabilityDeleted(done, resume));
-    // }
-
-    /**
-     * ------------------------------
-     * Method
-     * ------------------------------
-     */
+    private void notifyAvailabilityDeleted(ServiceResume resume, Availability done) {
+        eventReceivers.forEach(er -> er.updateAvailabilityDeleted(done, resume));
+    }
 
     /**
      * generate new Resume if it doesn't exist
@@ -264,8 +257,14 @@ public class KitchenManager {
         return shifts;
     }
 
+    /**
+     * DSD 5
+     * 
+     * @return
+     * @throws UseCaseLogicException
+     */    
     public void assignTask(ServiceResume resume, AbstractRecipe tbp, User cook,
-            Shift shift, String time, String quantity) throws UseCaseLogicException {
+        Shift shift, int time, String quantity) throws UseCaseLogicException {
         UserManager userMgr = CatERing.getInstance().getUserManager();
         User user = userMgr.getCurrentUser();
 
@@ -287,7 +286,8 @@ public class KitchenManager {
         if (cook != null && !cook.isCook())
             throw new UseCaseLogicException("Il cuoco non è valido");
 
-        if (shift != null && shift.getDuration(shift.getId()) < time)
+        /* Confronto in minuti: time sono i minuti necessari per il task */
+        if (shift != null && shift.getDuration(shift) < time)
             throw new UseCaseLogicException("Il tempo della preparazione supera la durata del turno");
 
         if (shift != null && cook != null && !cook.isAvaible(shift))
@@ -299,187 +299,82 @@ public class KitchenManager {
         notifyNewTask(resume, newTask);
     }
 
-    // public void modifyTask(ServiceResume resume, Task task, AbstractRecipe tbp,
-    // User cook, Turn turn, String time, String quantity) throws
-    // UseCaseLogicException {
-    // if(task == null)
-    // throw new NullPointerException();
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
+    /**
+     * DSD 5a.1
+     * 
+     * @return
+     * @throws UseCaseLogicException
+     */ 
+    public void modifyTask(ServiceResume resume, Task task, AbstractRecipe tbp, User cook, Shift shift, int time, String quantity) throws UseCaseLogicException {
+        if(task == null)
+          throw new NullPointerException();
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
+    
+        if(user == null || !user.isChef())
+          throw new UseCaseLogicException("L'utente non è uno chef");
+    
+        if(resume  == null || !resume.isSummarized(task))
+          throw new UseCaseLogicException("La scheda non è aperta o non contiene il compito.");
+    
+        if(tbp == null)
+          throw new UseCaseLogicException("Il compito deve avere una mansione.");
+    
+        if(!resume.isRequired(tbp))
+          throw new UseCaseLogicException("La scheda non prevede la ricetta/preparazione.");
+    
+        if(shift != null && shift.getStart().isBefore(LocalDateTime.now()))
+          throw new UseCaseLogicException("Il turno si svolge nel passato.");
+    
+        if(cook != null && !cook.isCook())
+          throw new UseCaseLogicException("Il cuoco non è valido");
+    
+        if(shift != null && cook != null && !cook.isAvaible(shift))
+          throw new UseCaseLogicException("Il cuoco non è disponibile nel turno.");
+    
+        Task succ = resume.whichAmIPrecedent(task);
+        if(shift != null && succ != null && succ.getShift() != null && succ.getShift().getStart().isBefore(shift.getEnd()))
+          throw new UseCaseLogicException("Il compito è impostato come precedente di un altro, ma il turno non consente questa successione.");
+    
+        task.setCook(cook);
+        task.setShift(shift);
+        task.setTbp(tbp);
+        task.setTime(time);
+        task.setQuantity(quantity);
+    
+        resume.setCurrentTask(task);
+        notifyTaskChanged(resume, task);
+      }
 
-    // if(user == null || !user.isChef())
-    // throw new UseCaseLogicException("L'utente non è uno chef");
+    /**
+     * DSD 5b.1
+     * 
+     * @return
+     */ 
+    public void deleteTask(ServiceResume resume, Task task) throws UseCaseLogicException {
+        if(task == null)
+          throw new NullPointerException();
+    
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
+    
+        if(user == null || !user.isChef()
+                || resume == null
+                || !resume.isSummarized(task)
+                )
+          throw new UseCaseLogicException("Il compito non appartiene al foglio in uso.");
+    
+        resume.removeTask(task);
+        notifyTaskRemoved(resume, task);
+      } 
 
-    // if(resume == null || !resume.isSummarized(task))
-    // throw new UseCaseLogicException("La scheda non è aperta o non contiene il
-    // compito.");
-
-    // if(tbp == null)
-    // throw new UseCaseLogicException("Il compito deve avere una mansione.");
-
-    // if(!resume.isRequired(tbp))
-    // throw new UseCaseLogicException("La scheda non prevede la
-    // ricetta/preparazione.");
-
-    // if(turn != null && turn.getStart().isBefore(LocalDateTime.now()))
-    // throw new UseCaseLogicException("Il turno si svolge nel passato.");
-
-    // if(cook != null && !cook.isCook())
-    // throw new UseCaseLogicException("Il cuoco non è valido");
-
-    // if(turn != null && cook != null && !cook.isAvaible(turn))
-    // throw new UseCaseLogicException("Il cuoco non è disponibile nel turno.");
-
-    // Task succ = resume.whichAmIPrecedent(task);
-    // if(turn != null && succ != null && succ.getTurn() != null &&
-    // succ.getTurn().getStart().isBefore(turn.getEnd()))
-    // throw new UseCaseLogicException("Il compito è impostato come precedente di un
-    // altro, ma il turno non consente questa successione.");
-
-    // task.setCook(cook);
-    // task.setTurn(turn);
-    // task.setTbp(tbp);
-    // task.setTime(time);
-    // task.setQuantity(quantity);
-
-    // resume.setCurrentTask(task);
-    // notifyTaskChanged(resume, task);
-    // }
-
-    // public void deleteTask(ServiceResume resume, Task task) throws
-    // UseCaseLogicException {
-    // if(task == null)
-    // throw new NullPointerException();
-
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
-
-    // if(user == null || !user.isChef()
-    // || resume == null
-    // || !resume.isSummarized(task)
-    // )
-    // throw new UseCaseLogicException("Il compito non appartiene al foglio in
-    // uso.");
-
-    // resume.removeTask(task);
-    // notifyTaskRemoved(resume, task);
-    // }
-
-    // public void signalTurnComplete(ServiceResume resume, Turn turn, boolean
-    // complete) throws UseCaseLogicException {
-    // if(turn == null)
-    // throw new NullPointerException();
-
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
-
-    // if(user == null || !user.isChef())
-    // throw new UseCaseLogicException("L'utente deve essere uno chef.");
-
-    // if(resume == null || !resume.validTurn(turn))
-    // throw new UseCaseLogicException("Non è possibile operare su turni nel
-    // passato.");
-
-    // List<Turn> suitableTurns = resume.getTasks().stream()
-    // .map(Task::getTurn)
-    // .collect(Collectors.toList());
-    // if(!suitableTurns.contains(turn))
-    // throw new UseCaseLogicException("Non hai assegnato compiti in questo
-    // turno.");
-
-    // TurnManager turnMgr = TurnManager.getInstance();
-    // turnMgr.setTurnComplete(turn, complete);
-    // notifyTurnComplete(turn, complete);
-    // }
-
-    // public void signalReady(ServiceResume resume, AbstractRecipe tbp, String
-    // quantity) throws UseCaseLogicException {
-    // if (tbp == null)
-    // throw new NullPointerException();
-
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
-
-    // if (user == null || !user.isChef())
-    // throw new UseCaseLogicException("Solo uno chef può effettuare
-    // l'operazione.");
-
-    // if (quantity == null || quantity.isEmpty())
-    // throw new UseCaseLogicException("Devi indicare una quantità.");
-
-    // Availability done = new Availability(tbp, quantity);
-    // if (!resume.getAvailabilities().contains(done)){
-    // resume.addAvailability(done);
-    // notifyAvailabilityAdded(resume, done);
-    // }
-    // }
-
-    // public void deleteReady(ServiceResume resume, Availability av) throws
-    // UseCaseLogicException {
-    // if(av == null)
-    // throw new NullPointerException();
-
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
-
-    // if(user == null || !user.isChef())
-    // throw new UseCaseLogicException("Solo uno chef può effettuare
-    // l'operazione.");
-
-    // if(!resume.getAvailabilities().contains(av))
-    // throw new UseCaseLogicException("La voce non appartiene alla foglio.");
-
-    // resume.deleteAvailability(av);
-    // notifyAvailabilityDeleted(resume, av);
-    // }
-
-    // public void setPreviousStep(ServiceResume resume, Task previousTask) throws
-    // UseCaseLogicException {
-    // if(previousTask == null)
-    // throw new NullPointerException();
-
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
-
-    // if(user == null || !user.isChef()
-    // || resume == null
-    // || !resume.isSummarized(previousTask)
-    // || resume.getCurrentTask() == null
-    // || !resume.isSummarized(resume.getCurrentTask())
-    // )
-    // throw new UseCaseLogicException("Precedente non valido");
-
-    // if(resume.getCurrentTask().getTurn() != null
-    // && previousTask.getTurn() != null
-    // &&
-    // resume.getCurrentTask().getTurn().getStart().isBefore(previousTask.getTurn().getEnd()))
-    // throw new UseCaseLogicException("Precedente non valido");
-
-    // resume.getCurrentTask().setPreviousStep(previousTask);
-    // notifyTaskChanged(resume, resume.getCurrentTask());
-    // }
-
-    // public void removePreviousStep(ServiceResume resume) throws
-    // UseCaseLogicException {
-
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
-
-    // if(user == null || !user.isChef()
-    // || resume == null
-    // || resume.getCurrentTask() == null
-    // || !resume.isSummarized(resume.getCurrentTask())
-    // )
-    // throw new UseCaseLogicException("Non è in corso la defizione di un
-    // compito.");
-    // resume.getCurrentTask().setPreviousStep(null);
-    // notifyTaskChanged(resume, resume.getCurrentTask());
-    // }
-
-    // public List<Task> getTasks(ServiceResume resume) {
-    // return resume.getTasks();
-    // }
-
+    /**
+     * DSD 5c.1
+     * 
+     * @return
+     */ 
+    
+      
     /**
      * 
      * @return List<ServiceResume>
@@ -500,12 +395,4 @@ public class KitchenManager {
                 return true;
         return false;
     }
-
-    // public List<ServiceResume> getCurrentResumes() {
-    // return currentResumes;
-    // }
-
-    // public void closeResume(ServiceResume resume) {
-    // currentResumes.remove(resume);
-    // }
 }

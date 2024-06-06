@@ -1,7 +1,6 @@
 package catering.businesslogic.event;
 
 import catering.businesslogic.menu.Menu;
-import catering.businesslogic.menu.MenuItem;
 import catering.persistence.PersistenceManager;
 import catering.persistence.ResultHandler;
 

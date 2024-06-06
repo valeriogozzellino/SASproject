@@ -190,4 +190,52 @@ public class ServiceResume {
         return deletedTBP;
     }
 
+    /**
+     * 
+     * @return
+     */
+    public List<AbstractRecipe> getToBePrepared() {
+        return toBePrepared;
+    }
+
+    /**
+     * 
+     * @param
+     */
+    public void setCurrentTask(Task currentTask) {
+        this.currentTask = currentTask;
+    }
+
+    /**
+     * 
+     * @param task
+     * @return
+     */
+    public boolean isSummarized(Task task) {
+        return tasks.contains(task);
+      }
+
+    /**
+     * 
+     * @param task
+     * @return
+     */
+    public Task whichAmIPrecedent(Task task) {
+        for (Task t: tasks)
+            if(t.getPreviousStep() != null && t.getPreviousStep() == task)
+                return t;
+        return null;
+    }
+
+    /**
+     * 
+     * @param task
+     */
+    public void removeTask(Task task) {
+        if(task == null) throw new NullPointerException();
+        tasks.remove(task);
+        Task t = whichAmIPrecedent(task);
+        if(t != null)
+          t.setPreviousStep(null);
+      }
 }

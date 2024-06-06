@@ -8,15 +8,14 @@ public class Task {
     private AbstractRecipe tbp;
     private User cook;
     private Shift shift;
-    private String time;
+    private int time;
     private String quantity;
     private Task previousTask;
     private int id;
 
-    private Task() {
-    }
+    private Task() {}
 
-    public Task(AbstractRecipe tbp, User cook, Shift shift, String time, String quantity) {
+    public Task(AbstractRecipe tbp, User cook, Shift shift, int time, String quantity) {
         if (tbp == null)
             throw new NullPointerException();
         this.tbp = tbp;
@@ -50,11 +49,11 @@ public class Task {
         this.shift = shift;
     }
 
-    public String getTime() {
+    public int getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(int time) {
         this.time = time;
     }
 
@@ -76,6 +75,10 @@ public class Task {
 
     public int getId() {
         return id;
+    }
+
+    public void setCurrentTask(Task currentTask) {
+        this.currentTask = currentTask;
     }
 
 }
