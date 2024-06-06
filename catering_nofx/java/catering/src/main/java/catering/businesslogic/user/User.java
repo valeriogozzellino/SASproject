@@ -1,20 +1,26 @@
 package catering.businesslogic.user;
 
+import catering.businesslogic.shift.Shift;
 import catering.persistence.PersistenceManager;
 import catering.persistence.ResultHandler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class User {
 
     private static Map<Integer, User> loadedUsers = new HashMap<Integer, User>();
+    private List<Shift> shifts = new ArrayList<>();
 
-    public static enum Role {SERVIZIO, CUOCO, CHEF, ORGANIZZATORE};
+    public static enum Role {
+        SERVIZIO, CUOCO, CHEF, ORGANIZZATORE
+    };
 
     private int id;
     private String username;
@@ -28,6 +34,18 @@ public class User {
 
     public boolean isChef() {
         return roles.contains(Role.CHEF);
+    }
+
+    public boolean isCook() {
+        return roles.contains(Role.CUOCO);
+    }
+
+    public boolean isAvaible(Shift shift) {
+        return shifts.contains(shift);
+    }
+
+    public boolean addShift(Shift shift) {
+        return shifts.add(shift);
     }
 
     public String getUserName() {
@@ -53,10 +71,11 @@ public class User {
     // STATIC METHODS FOR PERSISTENCE
 
     public static User loadUserById(int uid) {
-        if (loadedUsers.containsKey(uid)) return loadedUsers.get(uid);
+        if (loadedUsers.containsKey(uid))
+            return loadedUsers.get(uid);
 
         User load = new User();
-        String userQuery = "SELECT * FROM Users WHERE id='"+uid+"'";
+        String userQuery = "SELECT * FROM Users WHERE id='" + uid + "'";
         PersistenceManager.executeQuery(userQuery, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {
@@ -92,7 +111,7 @@ public class User {
 
     public static User loadUser(String username) {
         User u = new User();
-        String userQuery = "SELECT * FROM Users WHERE username='"+username+"'";
+        String userQuery = "SELECT * FROM Users WHERE username='" + username + "'";
         PersistenceManager.executeQuery(userQuery, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {

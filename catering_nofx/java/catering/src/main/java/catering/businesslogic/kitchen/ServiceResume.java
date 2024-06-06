@@ -29,6 +29,11 @@ public class ServiceResume {
         loadToBePrepared();
     }
 
+    /**
+     * 
+     * @param service
+     * @param id
+     */
     private ServiceResume(ServiceInfo service, int id) {
         if (service == null)
             throw new NullPointerException();
@@ -67,10 +72,67 @@ public class ServiceResume {
         return toBePrepared;
     }
 
+    /**
+     * 
+     * @return
+     */
     public ServiceInfo getReferredService() {
         return referredService;
     }
 
+    /**
+     * 
+     * @param tbp
+     */
+    public void addToBePrepared(AbstractRecipe tbp) {
+        toBePrepared.add(tbp);
+    }
+
+    /**
+     * 
+     * @param tbp
+     * @param position
+     */
+    public void sortToBePrepared(AbstractRecipe tbp, int position) {
+        toBePrepared.remove(tbp);
+        toBePrepared.add(position, tbp);
+    }
+
+    public void addTask(Task task) {
+        tasks.add(task);
+    }
+
+    /**
+     * 
+     * @return size of toBePrepared list
+     */
+    public int toBePreparedSize() {
+        return toBePrepared.size();
+    }
+
+    /**
+     * 
+     * @param recipe
+     * @return
+     */
+    public boolean isRequired(AbstractRecipe recipe) {
+        return toBePrepared.contains(recipe);
+    }
+
+    public AbstractRecipe removeToBePrepared(AbstractRecipe tbp) {
+        for (AbstractRecipe x : toBePrepared) {
+            if (tbp.equals(x)) {
+                toBePrepared.remove(x);
+            }
+            return x;
+        }
+        return null;
+    }
+
+    /**
+     * 
+     * @return
+     */
     private List<AbstractRecipe> loadToBePreparedFromDB() {
         RecipeManager recipeManager = RecipeManager.getInstance();
         String stm = "SELECT * FROM tobeprepared WHERE resume_id =" + id + " ORDER BY position";
@@ -84,6 +146,10 @@ public class ServiceResume {
         return recipes;
     }
 
+    /**
+     * 
+     * @return
+     */
     public static List<ServiceResume> loadAllServiceResumes() {
         String stm = "SELECT * FROM serviceresumes";
         List<ServiceResume> resumes = new ArrayList<>();

@@ -2,8 +2,6 @@ package catering.businesslogic.event;
 
 import java.util.ArrayList;
 
-import org.w3c.dom.events.Event;
-
 public class EventManager {
     private static EventManager instance;
     private ArrayList<EventInfo> eventList = new ArrayList<>();
@@ -14,7 +12,9 @@ public class EventManager {
         return eventList;
     }
 
-    public EventManager getInstance() {
+    public static EventManager getInstance() {
+        if (instance == null)
+            instance = new EventManager();
         return instance;
     }
 

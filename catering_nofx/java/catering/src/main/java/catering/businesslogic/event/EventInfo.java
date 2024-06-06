@@ -63,4 +63,13 @@ public class EventInfo implements EventItemInfo {
     public boolean isChefInCharge(User user) {
         return user.equals(chef);
     }
+
+    public ServiceInfo getService(int id) {
+        for (ServiceInfo s : services) {
+            if (s.getId() == id) {
+                return s;
+            }
+        }
+        return null;
+    }
 }

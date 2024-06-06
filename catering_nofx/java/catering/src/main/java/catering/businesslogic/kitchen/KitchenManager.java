@@ -13,6 +13,7 @@ import catering.businesslogic.event.ServiceInfo;
 import catering.businesslogic.kitchen.*;
 import catering.businesslogic.recipe.AbstractRecipe;
 import catering.businesslogic.shift.Shift;
+import catering.businesslogic.shift.ShiftManager;
 import catering.businesslogic.user.User;
 import catering.businesslogic.user.UserManager;
 
@@ -188,88 +189,115 @@ public class KitchenManager {
         return resume;
     }
 
-    // public void addToBePrepared(ServiceResume resume, AbstractRecipe tbp) throws
-    // UseCaseLogicException {
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
+    /**
+     * DSD 2
+     * 
+     * @param resume
+     * @param tbp
+     * @throws UseCaseLogicException
+     */
+    public void addToBePrepared(ServiceResume resume, AbstractRecipe tbp) throws UseCaseLogicException {
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
 
-    // if (user == null || !user.isChef() || resume == null)
-    // throw new UseCaseLogicException("L'utente non è uno chef.");
+        if (user == null || !user.isChef() || resume == null)
+            throw new UseCaseLogicException("L'utente non è uno chef.");
 
-    // if (!resume.isRequired(tbp)) {
-    // resume.addToBePrepared(tbp);
-    // notifyToBePreparedAdded(resume, tbp);
-    // }
-    // }
+        if (!resume.isRequired(tbp)) {
+            resume.addToBePrepared(tbp);
+            notifyToBePreparedAdded(resume, tbp);
+        }
+    }
 
-    // public void removeToBePrepared(ServiceResume resume, AbstractRecipe tbp)
-    // throws UseCaseLogicException {
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
+    /**
+     * DSD 2a.1
+     * 
+     * @param resume
+     * @param tbp
+     * @throws UseCaseLogicException
+     */
+    public void removeToBePrepared(ServiceResume resume, AbstractRecipe tbp)
+            throws UseCaseLogicException {
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
 
-    // if(user == null || !user.isChef() || resume == null ||
-    // !resume.isRequired(tbp))
-    // throw new UseCaseLogicException();
+        if (user == null || !user.isChef() || resume == null ||
+                !resume.isRequired(tbp))
+            throw new UseCaseLogicException();
 
-    // AbstractRecipe removed = resume.removeToBePrepared(tbp);
-    // notifyToBePreparedRemoved(resume, removed);
-    // }
+        AbstractRecipe removed = resume.removeToBePrepared(tbp);
+        notifyToBePreparedRemoved(resume, removed);
+    }
 
-    // public void moveToBePrepared(ServiceResume resume, AbstractRecipe tbp, int
-    // position) {
-    // if(position < 0 || position >= resume.toBePreparedSize())
-    // return;
+    /**
+     * DSD 3
+     * 
+     * @param resume
+     * @param tbp
+     * @param position
+     */
+    public void sortToBePrepared(ServiceResume resume, AbstractRecipe tbp, int position) {
+        if (position < 0 || position >= resume.toBePreparedSize())
+            return;
 
-    // resume.moveToBePrepared(tbp, position);
-    // notifyToBePreparedArranged(resume);
-    // }
+        resume.sortToBePrepared(tbp, position);
+        notifyToBePreparedArranged(resume);
+    }
 
-    // public List<Turn> showTurnBoard() throws UseCaseLogicException {
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
+    /**
+     * DSD 4
+     * 
+     * @return
+     * @throws UseCaseLogicException
+     */
+    public List<Shift> showShiftsBoard() throws UseCaseLogicException {
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
 
-    // if(!user.isChef()){
-    // throw new UseCaseLogicException();
-    // }
+        if (!user.isChef()) {
+            throw new UseCaseLogicException();
+        }
 
-    // TurnManager turnMgr = TurnManager.getInstance();
-    // List<Turn> turns = turnMgr.getTurns();
+        ShiftManager shiftMgr = ShiftManager.getInstance();
+        List<Shift> shifts = shiftMgr.getShifts();
 
-    // return turns;
-    // }
+        return shifts;
+    }
 
-    // public void assignTask(ServiceResume resume, AbstractRecipe tbp, User cook,
-    // Turn turn, String time, String quantity) throws UseCaseLogicException {
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
+    public void assignTask(ServiceResume resume, AbstractRecipe tbp, User cook,
+            Shift shift, String time, String quantity) throws UseCaseLogicException {
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
 
-    // if(user == null || !user.isChef())
-    // throw new UseCaseLogicException("L'utente non è uno chef");
+        if (user == null || !user.isChef())
+            throw new UseCaseLogicException("L'utente non è uno chef");
 
-    // if(resume == null)
-    // throw new UseCaseLogicException("Non è aperta alcuna scheda.");
+        if (resume == null)
+            throw new UseCaseLogicException("Non è aperta alcuna scheda.");
 
-    // if(tbp == null)
-    // throw new UseCaseLogicException("Il compito deve avere una mansione.");
+        if (tbp == null)
+            throw new UseCaseLogicException("Il compito deve avere una mansione.");
 
-    // if(!resume.isRequired(tbp))
-    // throw new UseCaseLogicException("La scheda non prevede la
-    // ricetta/preparazione.");
+        if (!resume.isRequired(tbp))
+            throw new UseCaseLogicException("La scheda non prevede la ricetta/preparazione.");
 
-    // if(turn != null && turn.getStart().isBefore(LocalDateTime.now()))
-    // throw new UseCaseLogicException("Il turno si svolge nel passato.");
+        if (shift != null && shift.getStart().isBefore(LocalDateTime.now()))
+            throw new UseCaseLogicException("Il turno si svolge nel passato.");
 
-    // if(cook != null && !cook.isCook())
-    // throw new UseCaseLogicException("Il cuoco non è valido");
+        if (cook != null && !cook.isCook())
+            throw new UseCaseLogicException("Il cuoco non è valido");
 
-    // if(turn != null && cook != null && !cook.isAvaible(turn))
-    // throw new UseCaseLogicException("Il cuoco non è disponibile nel turno");
+        if (shift != null && shift.getDuration(shift.getId()) < time)
+            throw new UseCaseLogicException("Il tempo della preparazione supera la durata del turno");
 
-    // Task newTask = new Task(tbp, cook, turn, time, quantity);
-    // resume.addTask(newTask);
-    // resume.setCurrentTask(newTask);
-    // notifyNewTask(resume, newTask);
-    // }
+        if (shift != null && cook != null && !cook.isAvaible(shift))
+            throw new UseCaseLogicException("Il cuoco non è disponibile nel turno");
+
+        Task newTask = new Task(tbp, cook, shift, time, quantity);
+        resume.addTask(newTask);
+        resume.setCurrentTask(newTask);
+        notifyNewTask(resume, newTask);
+    }
 
     // public void modifyTask(ServiceResume resume, Task task, AbstractRecipe tbp,
     // User cook, Turn turn, String time, String quantity) throws
