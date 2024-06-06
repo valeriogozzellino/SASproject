@@ -3,6 +3,7 @@ package catering.businesslogic.kitchen;
 import java.util.ArrayList;
 import java.util.List;
 
+import catering.businesslogic.event.EventManager;
 import catering.businesslogic.event.ServiceInfo;
 import catering.businesslogic.menu.Menu;
 import catering.businesslogic.menu.MenuItem;
@@ -35,8 +36,8 @@ public class ServiceResume {
         referredService = service;
         this.id = id;
         toBePrepared.addAll(loadToBePreparedFromDB());
-        tasks.addAll(Task.loadForResume(this));
-        availabilities.addAll(Availability.loadForResume(this));
+        // tasks.addAll(Task.loadForResume(this));
+        // availabilities.addAll(Availability.loadForResume(this));
 
     }
 
@@ -81,6 +82,46 @@ public class ServiceResume {
         });
 
         return recipes;
+    }
+
+    public static List<ServiceResume> loadAllServiceResumes() {
+        String stm = "SELECT * FROM serviceresumes";
+        List<ServiceResume> resumes = new ArrayList<>();
+        PersistenceManager.executeQuery(stm, rs -> {
+            int id = rs.getInt("id");
+            int serviceId = rs.getInt("service_id");
+            ServiceInfo service = EventManager.getInstance().getService(serviceId);
+            if (service != null)
+                resumes.add(new ServiceResume(service, id));
+        });
+
+        return resumes;
+    }
+
+    /**
+     * remote all tasks from list in service resume
+     * 
+     * @return
+     */
+    public List<Task> deleteAllTask() {
+        List<Task> deletedTask = tasks;
+        tasks.clear();
+
+        return deletedTask;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public List<AbstractRecipe> deleteAllToBePrepared() {
+        List<AbstractRecipe> deletedTBP = new ArrayList<>();
+
+        for (AbstractRecipe ar : toBePrepared)
+            deletedTBP.add(ar);
+        toBePrepared.clear();
+
+        return deletedTBP;
     }
 
 }

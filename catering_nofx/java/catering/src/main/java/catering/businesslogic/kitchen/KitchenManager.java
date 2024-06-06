@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.w3c.dom.events.Event;
-
 import catering.businesslogic.CatERing;
 import catering.businesslogic.UseCaseLogicException;
 import catering.businesslogic.event.EventInfo;
@@ -83,9 +81,10 @@ public class KitchenManager {
         eventReceivers.forEach(er -> er.updateAvailabilityAdded(resume, done));
     }
 
-    private void notifyAvailabilityDeleted(ServiceResume resume, Availability done) {
-        eventReceivers.forEach(er -> er.updateAvailabilityDeleted(done, resume));
-    }
+    // private void notifyAvailabilityDeleted(ServiceResume resume, Availability
+    // done) {
+    // eventReceivers.forEach(er -> er.updateAvailabilityDeleted(done, resume));
+    // }
 
     /**
      * ------------------------------
@@ -95,6 +94,7 @@ public class KitchenManager {
 
     /**
      * generate new Resume if it doesn't exist
+     * DSD 1
      * 
      * @param service
      * @return
@@ -127,60 +127,76 @@ public class KitchenManager {
         return resume;
     }
 
-    // public ServiceResume openResume(ServiceResume resume) throws
-    // UseCaseLogicException {
-    // UserManager userMgr = CatERing.getInstance().getUserManager();
-    // User user = userMgr.getCurrentUser();
+    /**
+     * DSD 1a.1
+     * 
+     * @param resume
+     * @return
+     * @throws UseCaseLogicException
+     */
+    public ServiceResume openResume(ServiceResume resume) throws UseCaseLogicException {
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
 
-    // if(user == null || !user.isChef())
-    // throw new UseCaseLogicException("L'utente non è autenticato come chef");
+        if (user == null || !user.isChef())
+            throw new UseCaseLogicException("L'utente non è autenticato come chef");
 
-    // Service service = resume.getReferredService();
-    // EventManager eventMgr = CatERing.getInstance().getEventManager();
-    // Event event = eventMgr.getEvent(service);
+        ServiceInfo service = resume.getReferredService();
+        EventManager eventMgr = CatERing.getInstance().getEventManager();
+        EventInfo event = eventMgr.getEvent(service);
 
-    // if(event == null || !event.isChefInCharge(user))
-    // throw new UseCaseLogicException("L'evento a cui appartiene il servizio non è
-    // in carico ad un altro chef.");
+        if (event == null || !event.isChefInCharge(user))
+            throw new UseCaseLogicException("L'evento a cui appartiene il servizio non è in carico ad un altro chef.");
 
-    // currentResumes.add(resume);
+        currentResumes.add(resume);
 
-    // return resume;
-    // }
+        return resume;
+    }
 
-    // public ServiceResume resetResume(ServiceResume resume) throws
-    // UseCaseLogicException{
-    // openResume(resume);
+    /**
+     * DSD 1b.1
+     * 
+     * @param resume
+     * @return
+     * @throws UseCaseLogicException
+     */
+    public ServiceResume resetResume(ServiceResume resume) throws UseCaseLogicException {
+        openResume(resume);
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
 
-    // //from now on currentResume is set to resume
-    // Service service = resume.getReferredService();
-    // if(service.getMenu() == null)
-    // throw new UseCaseLogicException("Il menù per il servizio non è definito.");
+        if (user == null || !user.isChef())
+            throw new UseCaseLogicException("L'utente non è autenticato come chef");
 
-    // List<Task> deletedTasks = resume.deleteAllTask();
-    // for(Task t: deletedTasks)
-    // notifyTaskRemoved(resume, t);
+        // from now on currentResume is set to resume
+        ServiceInfo service = resume.getReferredService();
+        if (service.getMenu() == null)
+            throw new UseCaseLogicException("Il menù per il servizio non è definito.");
 
-    // List<AbstractRecipe> deletedTBP = resume.deleteAllToBePrepared();
-    // for(AbstractRecipe ar: deletedTBP)
-    // notifyToBePreparedRemoved(resume, ar);
+        List<Task> deletedTasks = resume.deleteAllTask();
+        for (Task t : deletedTasks)
+            notifyTaskRemoved(resume, t);
 
-    // List<AbstractRecipe> loadedTBP = resume.loadToBePrepared();
-    // for(AbstractRecipe ar: loadedTBP)
-    // notifyToBePreparedAdded(resume, ar);
+        List<AbstractRecipe> deletedTBP = resume.deleteAllToBePrepared();
+        for (AbstractRecipe ar : deletedTBP)
+            notifyToBePreparedRemoved(resume, ar);
 
-    // return resume;
-    // }
+        List<AbstractRecipe> loadedTBP = resume.loadToBePrepared();
+        for (AbstractRecipe ar : loadedTBP)
+            notifyToBePreparedAdded(resume, ar);
+
+        return resume;
+    }
 
     // public void addToBePrepared(ServiceResume resume, AbstractRecipe tbp) throws
     // UseCaseLogicException {
     // UserManager userMgr = CatERing.getInstance().getUserManager();
     // User user = userMgr.getCurrentUser();
 
-    // if(user == null || !user.isChef() || resume == null)
+    // if (user == null || !user.isChef() || resume == null)
     // throw new UseCaseLogicException("L'utente non è uno chef.");
 
-    // if(!resume.isRequired(tbp)) {
+    // if (!resume.isRequired(tbp)) {
     // resume.addToBePrepared(tbp);
     // notifyToBePreparedAdded(resume, tbp);
     // }
