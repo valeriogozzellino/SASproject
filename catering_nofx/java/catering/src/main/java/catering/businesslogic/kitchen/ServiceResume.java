@@ -1,5 +1,6 @@
 package catering.businesslogic.kitchen;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import catering.businesslogic.menu.MenuItem;
 import catering.businesslogic.menu.Section;
 import catering.businesslogic.recipe.AbstractRecipe;
 import catering.businesslogic.recipe.RecipeManager;
+import catering.businesslogic.shift.Shift;
 import catering.persistence.PersistenceManager;
 
 public class ServiceResume {
@@ -200,6 +202,14 @@ public class ServiceResume {
 
     /**
      * 
+     * @return
+     */
+    public Task getCurrentTask() {
+        return currentTask;
+    }
+
+    /**
+     * 
      * @param
      */
     public void setCurrentTask(Task currentTask) {
@@ -213,7 +223,26 @@ public class ServiceResume {
      */
     public boolean isSummarized(Task task) {
         return tasks.contains(task);
-      }
+    }
+
+    /**
+     * 
+     * @param shift
+     * @return
+     */
+    public boolean validTurn(Shift shift) {
+        if (shift == null)
+            throw new NullPointerException();
+        return shift.getStart().isAfter(LocalDateTime.now());
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public List<Task> getTasks() {
+        return tasks;
+    }
 
     /**
      * 
@@ -221,8 +250,8 @@ public class ServiceResume {
      * @return
      */
     public Task whichAmIPrecedent(Task task) {
-        for (Task t: tasks)
-            if(t.getPreviousStep() != null && t.getPreviousStep() == task)
+        for (Task t : tasks)
+            if (t.getPreviousStep() != null && t.getPreviousStep() == task)
                 return t;
         return null;
     }
@@ -232,10 +261,35 @@ public class ServiceResume {
      * @param task
      */
     public void removeTask(Task task) {
-        if(task == null) throw new NullPointerException();
+        if (task == null)
+            throw new NullPointerException();
         tasks.remove(task);
         Task t = whichAmIPrecedent(task);
-        if(t != null)
-          t.setPreviousStep(null);
-      }
+        if (t != null)
+            t.setPreviousStep(null);
+    }
+
+    /**
+     * 
+     * @param done
+     */
+    public void addAvailability(Availability done) {
+        availabilities.add(done);
+    }
+
+    /**
+     * 
+     * @param done
+     */
+    public void deleteAvailability(Availability done) {
+        availabilities.remove(done);
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public List<Availability> getAvailabilities() {
+        return availabilities;
+    }
 }

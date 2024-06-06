@@ -28,6 +28,9 @@ public interface KitchenEventReceiver {
     default void updateAvailabilityAdded(ServiceResume resume, Availability done) {
     }
 
+    default void updateAvailabilityDeleted(Availability done, ServiceResume resume) {
+    }
+
     default void updateShiftState(Shift turn, boolean complete) {
     }
 }

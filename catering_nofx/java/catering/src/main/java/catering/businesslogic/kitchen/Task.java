@@ -13,7 +13,8 @@ public class Task {
     private Task previousTask;
     private int id;
 
-    private Task() {}
+    private Task() {
+    }
 
     public Task(AbstractRecipe tbp, User cook, Shift shift, int time, String quantity) {
         if (tbp == null)

@@ -10,7 +10,6 @@ import catering.businesslogic.UseCaseLogicException;
 import catering.businesslogic.event.EventInfo;
 import catering.businesslogic.event.EventManager;
 import catering.businesslogic.event.ServiceInfo;
-import catering.businesslogic.kitchen.*;
 import catering.businesslogic.recipe.AbstractRecipe;
 import catering.businesslogic.shift.Shift;
 import catering.businesslogic.shift.ShiftManager;
@@ -262,9 +261,9 @@ public class KitchenManager {
      * 
      * @return
      * @throws UseCaseLogicException
-     */    
+     */
     public void assignTask(ServiceResume resume, AbstractRecipe tbp, User cook,
-        Shift shift, int time, String quantity) throws UseCaseLogicException {
+            Shift shift, int time, String quantity) throws UseCaseLogicException {
         UserManager userMgr = CatERing.getInstance().getUserManager();
         User user = userMgr.getCurrentUser();
 
@@ -304,77 +303,216 @@ public class KitchenManager {
      * 
      * @return
      * @throws UseCaseLogicException
-     */ 
-    public void modifyTask(ServiceResume resume, Task task, AbstractRecipe tbp, User cook, Shift shift, int time, String quantity) throws UseCaseLogicException {
-        if(task == null)
-          throw new NullPointerException();
+     */
+    public void modifyTask(ServiceResume resume, Task task, AbstractRecipe tbp, User cook, Shift shift, int time,
+            String quantity) throws UseCaseLogicException {
+        if (task == null)
+            throw new NullPointerException();
         UserManager userMgr = CatERing.getInstance().getUserManager();
         User user = userMgr.getCurrentUser();
-    
-        if(user == null || !user.isChef())
-          throw new UseCaseLogicException("L'utente non è uno chef");
-    
-        if(resume  == null || !resume.isSummarized(task))
-          throw new UseCaseLogicException("La scheda non è aperta o non contiene il compito.");
-    
-        if(tbp == null)
-          throw new UseCaseLogicException("Il compito deve avere una mansione.");
-    
-        if(!resume.isRequired(tbp))
-          throw new UseCaseLogicException("La scheda non prevede la ricetta/preparazione.");
-    
-        if(shift != null && shift.getStart().isBefore(LocalDateTime.now()))
-          throw new UseCaseLogicException("Il turno si svolge nel passato.");
-    
-        if(cook != null && !cook.isCook())
-          throw new UseCaseLogicException("Il cuoco non è valido");
-    
-        if(shift != null && cook != null && !cook.isAvaible(shift))
-          throw new UseCaseLogicException("Il cuoco non è disponibile nel turno.");
-    
+
+        if (user == null || !user.isChef())
+            throw new UseCaseLogicException("L'utente non è uno chef");
+
+        if (resume == null || !resume.isSummarized(task))
+            throw new UseCaseLogicException("La scheda non è aperta o non contiene il compito.");
+
+        if (tbp == null)
+            throw new UseCaseLogicException("Il compito deve avere una mansione.");
+
+        if (!resume.isRequired(tbp))
+            throw new UseCaseLogicException("La scheda non prevede la ricetta/preparazione.");
+
+        if (shift != null && shift.getStart().isBefore(LocalDateTime.now()))
+            throw new UseCaseLogicException("Il turno si svolge nel passato.");
+
+        if (cook != null && !cook.isCook())
+            throw new UseCaseLogicException("Il cuoco non è valido");
+
+        if (shift != null && cook != null && !cook.isAvaible(shift))
+            throw new UseCaseLogicException("Il cuoco non è disponibile nel turno.");
+
         Task succ = resume.whichAmIPrecedent(task);
-        if(shift != null && succ != null && succ.getShift() != null && succ.getShift().getStart().isBefore(shift.getEnd()))
-          throw new UseCaseLogicException("Il compito è impostato come precedente di un altro, ma il turno non consente questa successione.");
-    
+        if (shift != null && succ != null && succ.getShift() != null
+                && succ.getShift().getStart().isBefore(shift.getEnd()))
+            throw new UseCaseLogicException(
+                    "Il compito è impostato come precedente di un altro, ma il turno non consente questa successione.");
+
         task.setCook(cook);
         task.setShift(shift);
         task.setTbp(tbp);
         task.setTime(time);
         task.setQuantity(quantity);
-    
+
         resume.setCurrentTask(task);
         notifyTaskChanged(resume, task);
-      }
+    }
 
     /**
      * DSD 5b.1
      * 
      * @return
-     */ 
+     */
     public void deleteTask(ServiceResume resume, Task task) throws UseCaseLogicException {
-        if(task == null)
-          throw new NullPointerException();
-    
+        if (task == null)
+            throw new NullPointerException();
+
         UserManager userMgr = CatERing.getInstance().getUserManager();
         User user = userMgr.getCurrentUser();
-    
-        if(user == null || !user.isChef()
+
+        if (user == null || !user.isChef()
                 || resume == null
-                || !resume.isSummarized(task)
-                )
-          throw new UseCaseLogicException("Il compito non appartiene al foglio in uso.");
-    
+                || !resume.isSummarized(task))
+            throw new UseCaseLogicException("Il compito non appartiene al foglio in uso.");
+
         resume.removeTask(task);
         notifyTaskRemoved(resume, task);
-      } 
+    }
 
     /**
      * DSD 5c.1
      * 
      * @return
-     */ 
-    
-      
+     */
+    public void signalTurnComplete(ServiceResume resume, Shift shift, boolean complete) throws UseCaseLogicException {
+        if (shift == null)
+            throw new NullPointerException();
+
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
+
+        if (user == null || !user.isChef())
+            throw new UseCaseLogicException("L'utente deve essere uno chef.");
+
+        if (resume == null || !resume.validTurn(shift))
+            throw new UseCaseLogicException("Non è possibile operare su turni nel passato.");
+
+        List<Shift> suitableTurns = resume.getTasks().stream()
+                .map(Task::getShift)
+                .collect(Collectors.toList());
+        if (!suitableTurns.contains(shift))
+            throw new UseCaseLogicException("Non hai assegnato compiti in questo turno.");
+
+        ShiftManager turnMgr = ShiftManager.getInstance();
+        turnMgr.setTurnComplete(shift, complete);
+        notifyTurnComplete(shift, complete);
+    }
+
+    /**
+     * DSD 5d.1
+     * 
+     * @return
+     */
+    public void signalReady(ServiceResume resume, AbstractRecipe tbp, String quantity) throws UseCaseLogicException {
+        if (tbp == null)
+            throw new NullPointerException();
+
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
+
+        if (user == null || !user.isChef())
+            throw new UseCaseLogicException("Solo uno chef può effettuare l'operazione.");
+
+        if (quantity == null || quantity.isEmpty())
+            throw new UseCaseLogicException("Devi indicare una quantità.");
+
+        // TODO: implementare la classe Availability
+        Availability done = new Availability(tbp, quantity);
+        if (!resume.getAvailabilities().contains(done)) {
+            resume.addAvailability(done);
+            notifyAvailabilityAdded(resume, done);
+        }
+    }
+
+    // TODO: aggiunto metodo per eliminazione di disponibiità
+    public void deleteReady(ServiceResume resume, Availability av) throws UseCaseLogicException {
+        if (av == null)
+            throw new NullPointerException();
+
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
+
+        if (user == null || !user.isChef())
+            throw new UseCaseLogicException("Solo uno chef può effettuare l'operazione.");
+
+        if (!resume.getAvailabilities().contains(av))
+            throw new UseCaseLogicException("La voce non appartiene alla foglio.");
+
+        resume.deleteAvailability(av);
+        notifyAvailabilityDeleted(resume, av);
+    }
+
+    /**
+     * DSD 6
+     * 
+     * @return
+     */
+    // TODO: finire metodo. Dal DSD non mi è chiaro come mai facciamo due volte
+    // l'assegnamento task.time = timetask
+    public void assignTaskTime(Task task, int time) throws UseCaseLogicException {
+        if (task == null)
+            throw new NullPointerException();
+
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
+
+        if (user == null || !user.isChef())
+            throw new UseCaseLogicException("Solo uno chef può effettuare l'operazione.");
+
+        task.setTime(time);
+
+        ShiftManager shiftMgr = ShiftManager.getInstance();
+        List<Shift> shifts = shiftMgr.getShifts();
+
+    }
+
+    /**
+     * DSD 7
+     * 
+     * @return
+     */
+    public void setPreviousStep(ServiceResume resume, Task previousTask) throws UseCaseLogicException {
+        if (previousTask == null)
+            throw new NullPointerException();
+
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
+
+        if (user == null || !user.isChef()
+                || resume == null
+                || !resume.isSummarized(previousTask)
+                || resume.getCurrentTask() == null
+                || !resume.isSummarized(resume.getCurrentTask()))
+            throw new UseCaseLogicException("Precedente non valido");
+
+        if (resume.getCurrentTask().getShift() != null
+                && previousTask.getShift() != null
+                && resume.getCurrentTask().getShift().getStart().isBefore(previousTask.getShift().getEnd()))
+            throw new UseCaseLogicException("Precedente non valido");
+
+        resume.getCurrentTask().setPreviousStep(previousTask);
+        notifyTaskChanged(resume, resume.getCurrentTask());
+    }
+
+    /**
+     * 
+     * @param resume
+     * @throws UseCaseLogicException
+     */
+    public void removePreviousStep(ServiceResume resume) throws UseCaseLogicException {
+
+        UserManager userMgr = CatERing.getInstance().getUserManager();
+        User user = userMgr.getCurrentUser();
+
+        if (user == null || !user.isChef()
+                || resume == null
+                || resume.getCurrentTask() == null
+                || !resume.isSummarized(resume.getCurrentTask()))
+            throw new UseCaseLogicException("Non è in corso la defizione di un compito.");
+        resume.getCurrentTask().setPreviousStep(null);
+        notifyTaskChanged(resume, resume.getCurrentTask());
+    }
+
     /**
      * 
      * @return List<ServiceResume>
