@@ -5,9 +5,10 @@ import catering.businesslogic.kitchen.KitchenEventReceiver;
 import catering.businesslogic.kitchen.ServiceResume;
 
 public class AvailabilityPersistence implements KitchenEventReceiver {
+
     @Override
-    public void updateAvailabilityAdded(Availability done, ServiceResume resume) {
-        Availability.save(done,resume);
+    public void updateAvailabilityAdded(ServiceResume resume, Availability done) {
+        Availability.save(resume, done);
     }
 
     @Override

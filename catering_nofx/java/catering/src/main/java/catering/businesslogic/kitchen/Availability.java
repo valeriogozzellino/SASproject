@@ -23,7 +23,7 @@ public class Availability {
         return tbp + ": " + quantity;
     }
 
-    public static void save(Availability done, ServiceResume resume) {
+    public static void save(ServiceResume resume, Availability done) {
         String stm = "INSERT INTO availabilities (resume_id, recipe_id, quantity) VALUES (?,?,?)";
         PersistenceManager.executeBatchUpdate(stm, 1, new BatchUpdateHandler() {
             @Override
