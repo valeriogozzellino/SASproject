@@ -13,8 +13,7 @@ public class Task {
     private Task previousTask;
     private int id;
 
-    private Task() {
-    }
+    private Task() {}
 
     public Task(AbstractRecipe tbp, User cook, Shift shift, int time, String quantity) {
         if (tbp == null)
@@ -76,10 +75,6 @@ public class Task {
 
     public int getId() {
         return id;
-    }
-
-    public void setCurrentTask(Task currentTask) {
-        this.currentTask = currentTask;
     }
 
 }

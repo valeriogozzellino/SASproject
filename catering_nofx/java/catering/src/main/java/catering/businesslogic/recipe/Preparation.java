@@ -19,7 +19,7 @@ public class Preparation extends AbstractRecipe {
 
     public static ArrayList<Preparation> loadAllPreparations() {
         ArrayList<Preparation> result = new ArrayList<>();
-        String query = "SELECT * FROM Preparations";
+        String query = "SELECT * FROM preparations";
         PersistenceManager.executeQuery(query, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {
