@@ -25,7 +25,7 @@ public class PersistenceManager {
 
     public static void testSQLConnection() {
         try (Connection conn = DriverManager.getConnection(url, username, password);
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM Users");
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM users");
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 int id = rs.getInt("id");
