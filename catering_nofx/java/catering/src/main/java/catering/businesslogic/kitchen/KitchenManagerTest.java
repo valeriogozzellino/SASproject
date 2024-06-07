@@ -1,5 +1,6 @@
 package catering.businesslogic.kitchen;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,7 +61,7 @@ public class KitchenManagerTest {
         List<AbstractRecipe> notAlreadyRequired = getSuitableRecipes(testResume);
         int tbp_before = testResume.getToBePrepared().size();
         int tasks_before = testResume.getTasks().size();
-        testResume.addTask(new Task(testResume.getToBePrepared().get(0), null, null, null, null));
+        testResume.addTask(new Task(testResume.getToBePrepared().get(0), null, null, 0, null));
         if (!notAlreadyRequired.isEmpty())
             testResume.addToBePrepared(notAlreadyRequired.get(0));
         km.resetResume(testResume);
@@ -135,14 +136,14 @@ public class KitchenManagerTest {
 
     public void deleteTask() throws UseCaseLogicException {
         testResume = km.generateResume(testService);
-        testResume.addTask(new Task(testResume.getToBePrepared().get(0), null, null, null, null));
+        testResume.addTask(new Task(testResume.getToBePrepared().get(0), null, null, 0, null));
         km.deleteTask(testResume, testResume.getTasks().get(0));
         System.out.println("Task deleted.");
     }
 
     private List<AbstractRecipe> getSuitableRecipes(ServiceResume resume) {
         List<AbstractRecipe> required_recipes = resume.getToBePrepared();
-        List<AbstractRecipe> recipes = Arrays.asList(rm.getRecipes());
+        List<AbstractRecipe> recipes = rm.getRecipes().stream();
         return recipes.stream()
             .filter(r -> !required_recipes.contains(r))
             .collect(Collectors.toList());
