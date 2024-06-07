@@ -1,7 +1,5 @@
 package catering.businesslogic.kitchen;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +8,7 @@ import catering.businesslogic.UseCaseLogicException;
 import catering.businesslogic.event.EventManager;
 import catering.businesslogic.event.ServiceInfo;
 import catering.businesslogic.recipe.AbstractRecipe;
+import catering.businesslogic.recipe.Recipe;
 import catering.businesslogic.recipe.RecipeManager;
 import catering.businesslogic.shift.Shift;
 import catering.businesslogic.shift.ShiftManager;
@@ -143,8 +142,8 @@ public class KitchenManagerTest {
 
     private List<AbstractRecipe> getSuitableRecipes(ServiceResume resume) {
         List<AbstractRecipe> required_recipes = resume.getToBePrepared();
-        List<AbstractRecipe> recipes = rm.getRecipes().stream();
-        return recipes.stream()
+       List<AbstractRecipe> allRecipes = (List<AbstractRecipe>)(List<?>) Recipe.loadAllRecipes();
+        return allRecipes.stream()
             .filter(r -> !required_recipes.contains(r))
             .collect(Collectors.toList());
     }

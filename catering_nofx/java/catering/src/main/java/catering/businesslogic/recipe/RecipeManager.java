@@ -12,7 +12,7 @@ public class RecipeManager {
         Recipe.loadAllRecipes();
     }
 
-    public List<Recipe> getRecipes() {
+    public ArrayList<Recipe> getRecipes() {
         return Recipe.loadAllRecipes();
     }
 
