@@ -1,6 +1,7 @@
 package catering.businesslogic.recipe;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecipeManager {
     private static RecipeManager instance;
@@ -12,7 +13,7 @@ public class RecipeManager {
     }
 
     public ArrayList<Recipe> getRecipes() {
-        return Recipe.getAllRecipes();
+        return Recipe.loadAllRecipes();
     }
 
     public static RecipeManager getInstance() {
@@ -26,6 +27,14 @@ public class RecipeManager {
             if (ar.getId() == id)
                 return ar;
         return null;
+    }
+
+    public List<AbstractRecipe> getRecipesAndPreparations() {
+        List<AbstractRecipe> abs = new ArrayList<>();
+        abs.addAll(recipes);
+        abs.addAll(preparations);
+
+        return abs;
     }
 
 }
