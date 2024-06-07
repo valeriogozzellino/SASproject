@@ -15,7 +15,7 @@ public class ShiftManager {
 
     private ShiftManager() {
         shifts = new ArrayList<>();
-        shifts.addAll(Shift.loadTurns());
+        shifts.addAll(Shift.loadShifts());
     }
 
     public List<Shift> getShifts() {
@@ -29,7 +29,7 @@ public class ShiftManager {
         return null;
     }
 
-    public void setTurnComplete(Shift shift, boolean complete) {
+    public void setShiftComplete(Shift shift, boolean complete) {
         if (shift == null)
             throw new NullPointerException();
         shift.setComplete(complete);

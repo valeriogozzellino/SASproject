@@ -1,5 +1,8 @@
 package catering.businesslogic.kitchen;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +15,7 @@ import catering.businesslogic.menu.Section;
 import catering.businesslogic.recipe.AbstractRecipe;
 import catering.businesslogic.recipe.RecipeManager;
 import catering.businesslogic.shift.Shift;
+import catering.persistence.BatchUpdateHandler;
 import catering.persistence.PersistenceManager;
 
 public class ServiceResume {
@@ -46,6 +50,28 @@ public class ServiceResume {
         // tasks.addAll(Task.loadForResume(this));
         // availabilities.addAll(Availability.loadForResume(this));
 
+    }
+
+    /**
+     * 
+     * @param resume
+     */
+    public static void save(ServiceResume resume) {
+        String stm = "INSERT INTO catering.serviceresumes(service_id) VALUES (?)";
+        int[] result = PersistenceManager.executeBatchUpdate(stm, 1, new BatchUpdateHandler() {
+            @Override
+            public void handleBatchItem(PreparedStatement ps, int batchCount) throws SQLException {
+                ps.setInt(1, resume.referredService.getId());
+            }
+
+            @Override
+            public void handleGeneratedIds(ResultSet rs, int count) throws SQLException {
+                // should be only one
+                if (count == 0) {
+                    resume.id = rs.getInt(1);
+                }
+            }
+        });
     }
 
     /**
@@ -230,7 +256,7 @@ public class ServiceResume {
      * @param shift
      * @return
      */
-    public boolean validTurn(Shift shift) {
+    public boolean validShift(Shift shift) {
         if (shift == null)
             throw new NullPointerException();
         return shift.getStart().isAfter(LocalDateTime.now());
@@ -291,5 +317,13 @@ public class ServiceResume {
      */
     public List<Availability> getAvailabilities() {
         return availabilities;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public int getId() {
+        return id;
     }
 }

@@ -72,7 +72,7 @@ public class Shift {
                 ", completo: " + complete;
     }
 
-    public static List<Shift> loadTurns() {
+    public static List<Shift> loadShifts() {
         String stm = "SELECT * FROM shifts"; // TODO: test sulla tabella
         List<Shift> result = new ArrayList<>();
         PersistenceManager.executeQuery(stm, rs -> {

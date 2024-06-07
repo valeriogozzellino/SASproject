@@ -1,6 +1,7 @@
 package catering.businesslogic.user;
 
 import catering.businesslogic.shift.Shift;
+import catering.businesslogic.shift.ShiftManager;
 import catering.persistence.PersistenceManager;
 import catering.persistence.ResultHandler;
 
@@ -65,6 +66,30 @@ public class User {
                 result += r.toString() + " ";
             }
         }
+        return result;
+    }
+
+    public static List<User> loadCooks() {
+        String stm = "SELECT * FROM users JOIN userroles ON id = user_id WHERE role_id = 'c'";
+        List<User> result = new ArrayList<>();
+        PersistenceManager.executeQuery(stm, rs -> {
+            User u = new User();
+            u.username = rs.getString("username");
+            u.id = rs.getInt("id");
+            u.roles.add(Role.CUOCO);
+            result.add(u);
+        });
+
+        List<Shift> shifts = new ArrayList<>();
+        
+        ShiftManager tm = ShiftManager.getInstance();
+        for (User user: result) {
+            stm = "SELECT turn_id FROM availableinturn WHERE user_id = " + user.id;
+            PersistenceManager.executeQuery(stm, rs -> {
+                user.shifts.add(tm.getShift(rs.getInt("turn_id")));
+            });
+        }
+
         return result;
     }
 

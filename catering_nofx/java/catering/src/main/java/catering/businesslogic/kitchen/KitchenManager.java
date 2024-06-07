@@ -73,8 +73,8 @@ public class KitchenManager {
         eventReceivers.forEach(er -> er.updateTaskRemoved(resume, task));
     }
 
-    private void notifyTurnComplete(Shift turn, boolean complete) {
-        eventReceivers.forEach(er -> er.updateShiftState(turn, complete));
+    private void notifyShiftComplete(Shift shift, boolean complete) {
+        eventReceivers.forEach(er -> er.updateShiftState(shift, complete));
     }
 
     private void notifyAvailabilityAdded(ServiceResume resume, Availability done) {
@@ -374,7 +374,7 @@ public class KitchenManager {
      * 
      * @return
      */
-    public void signalTurnComplete(ServiceResume resume, Shift shift, boolean complete) throws UseCaseLogicException {
+    public void signalShiftComplete(ServiceResume resume, Shift shift, boolean complete) throws UseCaseLogicException {
         if (shift == null)
             throw new NullPointerException();
 
@@ -384,18 +384,18 @@ public class KitchenManager {
         if (user == null || !user.isChef())
             throw new UseCaseLogicException("L'utente deve essere uno chef.");
 
-        if (resume == null || !resume.validTurn(shift))
+        if (resume == null || !resume.validShift(shift))
             throw new UseCaseLogicException("Non è possibile operare su turni nel passato.");
 
-        List<Shift> suitableTurns = resume.getTasks().stream()
+        List<Shift> suitableShifts = resume.getTasks().stream()
                 .map(Task::getShift)
                 .collect(Collectors.toList());
-        if (!suitableTurns.contains(shift))
+        if (!suitableShifts.contains(shift))
             throw new UseCaseLogicException("Non hai assegnato compiti in questo turno.");
 
-        ShiftManager turnMgr = ShiftManager.getInstance();
-        turnMgr.setTurnComplete(shift, complete);
-        notifyTurnComplete(shift, complete);
+        ShiftManager shiftMgr = ShiftManager.getInstance();
+        shiftMgr.setShiftComplete(shift, complete);
+        notifyShiftComplete(shift, complete);
     }
 
     /**
