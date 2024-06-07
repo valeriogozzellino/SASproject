@@ -34,6 +34,13 @@ public class EventInfo implements EventItemInfo {
         return name + ": " + dateStart + "-" + dateEnd + ", " + participants + " pp. (" + organizer.getUserName() + ")";
     }
 
+    public ServiceInfo getService(int id) {
+        for (ServiceInfo s: services)
+          if(s.getId() == id)
+            return s;
+        return null;
+      }
+
     // STATIC METHODS FOR PERSISTENCE
 
     public static ArrayList<EventInfo> loadAllEventInfo() {
@@ -62,14 +69,5 @@ public class EventInfo implements EventItemInfo {
 
     public boolean isChefInCharge(User user) {
         return user.equals(chef);
-    }
-
-    public ServiceInfo getService(int id) {
-        for (ServiceInfo s : services) {
-            if (s.getId() == id) {
-                return s;
-            }
-        }
-        return null;
     }
 }
