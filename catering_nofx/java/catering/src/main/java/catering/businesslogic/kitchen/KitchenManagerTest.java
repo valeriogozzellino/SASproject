@@ -23,6 +23,43 @@ public class KitchenManagerTest {
     static ServiceInfo testService;
     static ServiceResume testResume;
 
+    public static void main(String[] args) {
+        /*---------- TEST KITCHEN MANAGER -----------*/
+            KitchenManagerTest test = new KitchenManagerTest();
+            KitchenManagerTest.init();
+            try {
+                test.generateResume();
+                test.after();
+                System.out.println("\n------------------------------\n");
+                test.addToBePrepared();
+                test.after();
+                System.out.println("\n------------------------------\n");
+                test.assignTask();
+                test.after();
+                System.out.println("\n------------------------------\n");
+                test.deleteTask();
+                test.after();
+                System.out.println("\n------------------------------\n");
+                test.openResume();
+                test.after();
+                System.out.println("\n------------------------------\n");
+                test.modifyTask();
+                test.after();
+                System.out.println("\n------------------------------\n");
+                test.moveToBePrepared();
+                test.after();
+                System.out.println("\n------------------------------\n");
+                test.showTurnBoard();
+                test.after();
+                System.out.println("\n------------------------------\n");
+                test.resetResume();
+                test.after();
+                System.out.println("\n------------------------------\n");
+            } catch (Exception e) {
+                System.err.println("Exception: "+ e);
+            }
+    }
+
     public static void init() {
         CatERing cer = CatERing.getInstanceNotPersistent();
         um = UserManager.getInstance();
@@ -31,7 +68,8 @@ public class KitchenManagerTest {
         em = EventManager.getInstance();
         sm = ShiftManager.getInstance();
         testService = em.getService(2);
-        um.fakeLogin("Tony");
+        System.out.println("SERVICE TEST : "+ testService+"\n");
+        um.fakeLogin("Lidia");
     }
 
     public void after() throws UseCaseLogicException {
@@ -72,7 +110,14 @@ public class KitchenManagerTest {
     }
 
     public void addToBePrepared() throws UseCaseLogicException {
+        System.out.println("---- 11111 ----- \n");
+        System.out.println("---- testService:  -----> " + testService);
+        
+        /* voglio generare un foglio di riepilogativo*/
         testResume = km.generateResume(testService);
+        
+        System.out.println("---- 222222 ----- \n");
+
         int tbpBefore = testResume.getToBePrepared().size();
         testResume.addToBePrepared(getSuitableRecipes(testResume).get(0));
         if (tbpBefore + 1 != testResume.getToBePrepared().size()) {

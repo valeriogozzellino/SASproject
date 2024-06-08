@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 import catering.businesslogic.CatERing;
 import catering.businesslogic.UseCaseLogicException;
-import catering.businesslogic.kitchen.KitchenManagerTest;
 import catering.businesslogic.menu.Menu;
 import catering.businesslogic.menu.MenuItem;
 import catering.businesslogic.menu.Section;
@@ -12,18 +11,7 @@ import catering.businesslogic.recipe.Recipe;
 public class TestCatERing4c {
     public static void main(String[] args) {
         try {
-            /*---------- TEST KITCHEN MANAGER -----------*/
-            KitchenManagerTest test = new KitchenManagerTest();
-
-            test.addToBePrepared();
-            test.after();
-            test.assignTask();
-            test.deleteTask();
-            test.addToBePrepared();
-            test.generateResume();
-            // test.assignTask();
-            // test.assignTask();
-            // test.assignTask();
+            
             /* System.out.println("TEST DATABASE CONNECTION");
             PersistenceManager.testSQLConnection();*/
             CatERing.getInstance().getUserManager().fakeLogin("Lidia");

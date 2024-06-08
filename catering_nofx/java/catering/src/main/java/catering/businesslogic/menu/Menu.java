@@ -28,8 +28,19 @@ public class Menu {
 
     private User owner;
 
-    private Menu() {
-        this.featuresMap = new HashMap<>();
+    public Menu() {
+        freeItems = new ArrayList<>();
+        sections = new ArrayList<>();
+        new MenuItem(new Recipe("Polenta"));
+
+        freeItems.add(new MenuItem(new Recipe("Vitello tonnato", 1)));
+        freeItems.add(new MenuItem(new Recipe("Carpaccio di spada", 2)));
+        freeItems.add(new MenuItem(new Recipe("Salmone al forno", 8)));
+
+        Section s = new Section("Sez");
+        s.addItem(new MenuItem(new Recipe("Insalata di riso", 4)));
+        s.addItem(new MenuItem(new Recipe("Pappa al pomodoro", 6)));
+        sections.add(s);
     }
 
     public Menu(User user, String title, String[] menuFeatures) {
@@ -261,6 +272,10 @@ public class Menu {
 
     public int getFreeItemCount() {
         return freeItems.size();
+    }
+
+    public  Menu findMenuById(int id){
+        return loadedMenus.get(id);
     }
 
     public void moveSection(Section sec, int position) {

@@ -99,23 +99,30 @@ public class KitchenManager {
 
         UserManager userMgr = CatERing.getInstance().getUserManager();
         User user = userMgr.getCurrentUser();
-
+        System.out.println("---- 333333 ----- \n");
+        
         if (user == null || !user.isChef())
             throw new UseCaseLogicException("L'utente non è autenticato come chef");
 
         EventManager eventMgr = CatERing.getInstance().getEventManager();
         EventInfo event = eventMgr.getEvent(service);
+        System.out.println("---- 44444 ----- \n");
+        System.out.println("---- User: "+ user.getUserName() +"id = "+ user.getId()+" \n");
+        System.out.println("---- User in carico all'evento : "+ event.getOrganizer()+" \n");
 
-        if (event == null || !event.isChefInCharge(user) || service.getMenu() == null)
+        if (event == null || !event.isOrgInCharge(user) || service.getMenu() == null) { //per funzionare ho dovuto togliere il ! (non) davanti a event.isChanrge...
             throw new UseCaseLogicException("L'evento di appartenenza non è valido.");
+        }
 
         if (exists(service))
             throw new UseCaseLogicException("Esiste già una scheda per l'evento.");
 
+        System.out.println("---- 55555 ----- \n");
         ServiceResume resume = new ServiceResume(service);
         currentResumes.add(resume);
         resumes.add(resume);
         notifyResumeCreated(resume);
+        System.out.println("---- 6666 ----- \n");
 
         return resume;
     }
@@ -138,7 +145,7 @@ public class KitchenManager {
         EventManager eventMgr = CatERing.getInstance().getEventManager();
         EventInfo event = eventMgr.getEvent(service);
 
-        if (event == null || !event.isChefInCharge(user))
+        if (event == null || !event.isOrgInCharge(user))
             throw new UseCaseLogicException("L'evento a cui appartiene il servizio non è in carico ad un altro chef.");
 
         currentResumes.add(resume);
@@ -528,6 +535,7 @@ public class KitchenManager {
      * @return boolean
      */
     public boolean exists(ServiceInfo resume) {
+        System.out.println("---- 9999999 ----- \n");
         for (ServiceResume r : resumes)
             if (r.getReferredService().equals(resume))
                 return true;

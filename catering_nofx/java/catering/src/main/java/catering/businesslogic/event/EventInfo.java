@@ -64,10 +64,20 @@ public class EventInfo implements EventItemInfo {
         for (EventInfo e : all) {
             e.services = ServiceInfo.loadServiceInfoForEvent(e.id);
         }
+        
         return all;
     }
 
+    public String getChef(){
+        return chef.getUserName();
+    }
+    public String getOrganizer(){
+        return organizer.getUserName();
+    }
     public boolean isChefInCharge(User user) {
         return user.equals(chef);
+    }
+    public boolean isOrgInCharge(User user) {
+        return user.getId() == organizer.getId();
     }
 }
