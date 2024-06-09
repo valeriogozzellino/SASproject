@@ -525,13 +525,13 @@ public class KitchenManager {
                 || !resume.isSummarized(previousTask)
                 || resume.getCurrentTask() == null
                 || !resume.isSummarized(resume.getCurrentTask())) {
-            throw new UseCaseLogicException("Precedente non valido");
+            throw new UseCaseLogicException("Precedente non valido 1");
         }
 
         if (resume.getCurrentTask().getShift() != null
                 && previousTask.getShift() != null
                 && resume.getCurrentTask().getShift().getStart().isBefore(previousTask.getShift().getEnd())) {
-            throw new UseCaseLogicException("Precedente non valido");
+            throw new UseCaseLogicException("Precedente non valido 2");
         }
 
         resume.getCurrentTask().setPreviousStep(previousTask);

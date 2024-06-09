@@ -14,7 +14,7 @@ public class Task {
     private Task previousTask;
     private int id;
 
-    public Task() {
+    private Task() {
     }
 
     public Task(AbstractRecipe tbp, User cook, Shift shift, int time, String quantity) {

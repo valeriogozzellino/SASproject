@@ -73,6 +73,10 @@ public class KitchenManagerTest {
             test.testSetPreviousStep();
             test.after();
             System.out.println("\n------------------------------\n");
+            System.out.println("\n TEST ASSIGN TASK TIME \n");
+            test.testAssignTaskTime();
+            test.after();
+            System.out.println("\n------------------------------\n");
             System.out.println("\n TEST SIGNAL SHIFT COMPLETE \n");
             test.testSignalShiftComplete();
             test.after();
@@ -298,7 +302,9 @@ public class KitchenManagerTest {
         }
 
         try {
-            Task validTask = new Task();
+            um.fakeLogin("Guido");
+            AbstractRecipe ar = testResume.getToBePrepared().get(0);
+            Task validTask = new Task(ar, um.getCurrentUser(), null, 0, null);
             validTask.setShift(new Shift());
             um.fakeLogin("NonChefUser");
             km.assignTaskTime(validTask, 30);
@@ -315,17 +321,18 @@ public class KitchenManagerTest {
         } catch (Exception e) {
             System.out.println("Passed: Caught NullPointerException as expected.");
         }
-
         try {
-            Task currentTask = new Task();
-            Task previousTask = new Task();
-            testResume.setCurrentTask(currentTask);
+
+            AbstractRecipe ar = testResume.getToBePrepared().get(0);
             um.fakeLogin("Tony");
+            Task currentTask = new Task(ar, um.getCurrentUser(), null, 0, null);
+            Task previousTask = new Task(ar, um.getCurrentUser(), null, 0, null);
+            testResume.setCurrentTask(currentTask);
+            testResume.addTask(previousTask);
             km.setPreviousStep(testResume, previousTask);
             System.out.println("Passed: Successfully set previous step.");
         } catch (UseCaseLogicException e) {
             System.out.println("Error: UseCaseLogicException expected for invalid task setup: " + e.getMessage());
         }
     }
-
 }
