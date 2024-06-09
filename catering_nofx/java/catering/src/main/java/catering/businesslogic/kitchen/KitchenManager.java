@@ -415,7 +415,6 @@ public class KitchenManager {
 
         UserManager userMgr = CatERing.getInstance().getUserManager();
         User user = userMgr.getCurrentUser();
-        System.out.println("check user: " + user == null + " : " + user.isChef() + " username " + user.getUserName() + " user id : " + user.getId() + "\n");
         if (user == null || !user.isChef()) {
             throw new UseCaseLogicException("L'utente deve essere uno chef.");
         }
@@ -457,7 +456,6 @@ public class KitchenManager {
             throw new UseCaseLogicException("Devi indicare una quantità.");
         }
 
-        // TODO: implementare la classe Availability
         Availability done = new Availability(tbp, quantity);
         if (!resume.getAvailabilities().contains(done)) {
             resume.addAvailability(done);
@@ -465,7 +463,6 @@ public class KitchenManager {
         }
     }
 
-    // TODO: aggiunto metodo per eliminazione di disponibiità
     public void deleteReady(ServiceResume resume, Availability av) throws UseCaseLogicException {
         if (av == null) {
             throw new NullPointerException();

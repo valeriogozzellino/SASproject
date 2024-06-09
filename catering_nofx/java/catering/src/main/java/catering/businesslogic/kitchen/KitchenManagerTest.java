@@ -227,15 +227,14 @@ public class KitchenManagerTest {
         }
 
         try {
-            Shift validShift = new Shift(); // Assuming this is a valid Shift object.
-            um.fakeLogin("NonChefUser"); // Assuming this logs in a user who is not a chef.
+            Shift validShift = new Shift();
+            um.fakeLogin("NonChefUser");
             km.signalShiftComplete(testResume, validShift, true);
             System.out.println("Error: UseCaseLogicException expected for non-chef user.");
         } catch (UseCaseLogicException e) {
             System.out.println("Passed: Caught UseCaseLogicException as expected with message: " + e.getMessage());
         }
 
-        // Further tests for other scenarios.
     }
 
     public void testSignalReady() {
@@ -250,15 +249,14 @@ public class KitchenManagerTest {
         }
 
         try {
-            AbstractRecipe validRecipe = new Recipe("pasta al sugo"); // Assume this creates a valid recipe.
-            um.fakeLogin("NonChefUser"); // Assuming this logs in a user who is not a chef.
+            AbstractRecipe validRecipe = new Recipe("pasta al sugo");
+            um.fakeLogin("NonChefUser");
             km.signalReady(testResume, validRecipe, "10");
             System.out.println("Error: UseCaseLogicException expected for non-chef user.");
         } catch (UseCaseLogicException e) {
             System.out.println("Passed: Caught UseCaseLogicException as expected with message: " + e.getMessage());
         }
 
-        // Further tests for other scenarios.
     }
 
     public void testDeleteReady() {
@@ -272,8 +270,8 @@ public class KitchenManagerTest {
         }
 
         try {
-            Availability invalidAvailability = new Availability(); // Assuming a constructor exists.
-            um.fakeLogin("NonChefUser"); // Log in a non-chef user.
+            Availability invalidAvailability = new Availability();
+            um.fakeLogin("NonChefUser");
             km.deleteReady(testResume, invalidAvailability);
             System.out.println("Error: UseCaseLogicException expected for non-chef user.");
         } catch (UseCaseLogicException e) {
@@ -281,9 +279,9 @@ public class KitchenManagerTest {
         }
 
         try {
-            Availability validAvailability = new Availability(); // Create a valid, existing availability.
-            testResume.addAvailability(validAvailability); // Assuming method to add availability for testing.
-            um.fakeLogin("Tony"); // Log in as a chef.
+            Availability validAvailability = new Availability();
+            testResume.addAvailability(validAvailability);
+            um.fakeLogin("Tony");
             km.deleteReady(testResume, validAvailability);
             System.out.println("Passed: Successfully deleted availability.");
         } catch (Exception e) {
@@ -300,9 +298,9 @@ public class KitchenManagerTest {
         }
 
         try {
-            Task validTask = new Task(); // Assume a valid task constructor
-            validTask.setShift(new Shift()); // Assume setting a shift that passes the overtime check.
-            um.fakeLogin("NonChefUser"); // Assume this user is not a chef.
+            Task validTask = new Task();
+            validTask.setShift(new Shift());
+            um.fakeLogin("NonChefUser");
             km.assignTaskTime(validTask, 30);
             System.out.println("Error: UseCaseLogicException expected for non-chef user.");
         } catch (UseCaseLogicException e) {
@@ -319,8 +317,8 @@ public class KitchenManagerTest {
         }
 
         try {
-            Task currentTask = new Task(); // Setup a current task
-            Task previousTask = new Task(); // Setup a previous task
+            Task currentTask = new Task();
+            Task previousTask = new Task();
             testResume.setCurrentTask(currentTask);
             um.fakeLogin("Tony");
             km.setPreviousStep(testResume, previousTask);
