@@ -69,7 +69,7 @@ public class Shift {
         for (Task t : tasks) {
             totalTime += t.getTime();
         }
-        totalTime += time;
+        totalTime = time;
         if (getDuration() >= totalTime) {
             return true;
         } else {

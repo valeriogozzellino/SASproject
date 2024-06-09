@@ -10,7 +10,7 @@ import catering.businesslogic.user.User;
 import catering.persistence.PersistenceManager;
 import catering.persistence.ResultHandler;
 
-public class EventInfo implements EventItemInfo {
+public class EventInfo {
 
     private int id;
     private String name;

@@ -200,8 +200,8 @@ public class KitchenManagerTest {
         testResume = km.generateResume(testService);
         km.assignTask(testResume, testResume.getToBePrepared().get(0), null, null, 0, null);
         Task t = testResume.getTasks().get(0);
-        km.modifyTask(testResume, t, t.getTbp(), null, null, 0, null);
         System.out.println("Task modified.");
+        km.modifyTask(testResume,t,t.getTbp(),null,null,0,null);
     }
 
     public void deleteTask() throws UseCaseLogicException {
@@ -322,14 +322,12 @@ public class KitchenManagerTest {
             System.out.println("Passed: Caught NullPointerException as expected.");
         }
         try {
-
-            AbstractRecipe ar = testResume.getToBePrepared().get(0);
-            um.fakeLogin("Tony");
-            Task currentTask = new Task(ar, um.getCurrentUser(), null, 0, null);
-            Task previousTask = new Task(ar, um.getCurrentUser(), null, 0, null);
-            testResume.setCurrentTask(currentTask);
-            testResume.addTask(previousTask);
-            km.setPreviousStep(testResume, previousTask);
+            testResume = km.generateResume(testService);
+            Shift tSucc = sm.getShifts().get(2);
+            Shift tPrec = sm.getShifts().get(1);
+            km.assignTask(testResume, testResume.getToBePrepared().get(0), null, tPrec, 0, null);
+            km.assignTask(testResume, testResume.getToBePrepared().get(0), null, tSucc, 0, null);
+            km.setPreviousStep(testResume, testResume.getTasks().get(0));
             System.out.println("Passed: Successfully set previous step.");
         } catch (UseCaseLogicException e) {
             System.out.println("Error: UseCaseLogicException expected for invalid task setup: " + e.getMessage());

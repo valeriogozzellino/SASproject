@@ -307,7 +307,7 @@ public class KitchenManager {
         }
 
         /* Confronto in minuti: time sono i minuti necessari per il task */
-        if (shift != null && shift.checkOverTimeTask(time)) {
+        if (shift != null && !shift.checkOverTimeTask(time)) {
             throw new UseCaseLogicException("Il tempo della preparazione supera la durata del turno");
         }
 
@@ -525,13 +525,13 @@ public class KitchenManager {
                 || !resume.isSummarized(previousTask)
                 || resume.getCurrentTask() == null
                 || !resume.isSummarized(resume.getCurrentTask())) {
-            throw new UseCaseLogicException("Precedente non valido 1");
+            throw new UseCaseLogicException("Precedente non valido");
         }
 
         if (resume.getCurrentTask().getShift() != null
                 && previousTask.getShift() != null
                 && resume.getCurrentTask().getShift().getStart().isBefore(previousTask.getShift().getEnd())) {
-            throw new UseCaseLogicException("Precedente non valido 2");
+            throw new UseCaseLogicException("Precedente non valido");
         }
 
         resume.getCurrentTask().setPreviousStep(previousTask);
