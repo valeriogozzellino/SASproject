@@ -13,6 +13,10 @@ public class Availability {
     private AbstractRecipe tbp;
     private String quantity;
 
+    public Availability() {
+
+    }
+
     public Availability(AbstractRecipe tbp, String quantity) {
         this.tbp = tbp;
         this.quantity = quantity;

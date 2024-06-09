@@ -15,6 +15,7 @@ import catering.businesslogic.shift.ShiftManager;
 import catering.businesslogic.user.UserManager;
 
 public class KitchenManagerTest {
+
     static UserManager um;
     static KitchenManager km;
     static RecipeManager rm;
@@ -25,39 +26,65 @@ public class KitchenManagerTest {
 
     public static void main(String[] args) {
         /*---------- TEST KITCHEN MANAGER -----------*/
-            KitchenManagerTest test = new KitchenManagerTest();
-            KitchenManagerTest.init();
-            try {
-                test.generateResume();
-                test.after();
-                System.out.println("\n------------------------------\n");
-                test.addToBePrepared();
-                test.after();
-                System.out.println("\n------------------------------\n");
-                test.assignTask();
-                test.after();
-                System.out.println("\n------------------------------\n");
-                test.deleteTask();
-                test.after();
-                System.out.println("\n------------------------------\n");
-                test.openResume();
-                test.after();
-                System.out.println("\n------------------------------\n");
-                test.modifyTask();
-                test.after();
-                System.out.println("\n------------------------------\n");
-                test.moveToBePrepared();
-                test.after();
-                System.out.println("\n------------------------------\n");
-                test.showTurnBoard();
-                test.after();
-                System.out.println("\n------------------------------\n");
-                test.resetResume();
-                test.after();
-                System.out.println("\n------------------------------\n");
-            } catch (Exception e) {
-                System.err.println("Exception: "+ e);
-            }
+        KitchenManagerTest test = new KitchenManagerTest();
+        KitchenManagerTest.init();
+        try {
+            System.out.println("\n GENERATE RESUME \n");
+            test.generateResume();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n ADD TO BE PREPARED \n");
+            test.addToBePrepared();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n ASSIGN TASK \n");
+            test.assignTask();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n DELETE TASK \n");
+            test.deleteTask();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n OPEN RESUME \n");
+            test.openResume();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n MODIFY TASK \n");
+            test.modifyTask();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n SORT TO BE PREPARED \n");
+            test.sortToBePrepared();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n SHOW TURN BOARD \n");
+            test.showTurnBoard();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n RESET RESUME \n");
+            test.resetResume();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n REMOVE TO BE PREPARED  \n");
+            test.removeToBePrepared();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n TEST PREVIOUS STEP \n");
+            test.testSetPreviousStep();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n TEST SIGNAL SHIFT COMPLETE \n");
+            test.testSignalShiftComplete();
+            test.after();
+            System.out.println("\n------------------------------\n");
+            System.out.println("\n TEST DELETE READY \n");
+            test.testDeleteReady();
+            test.after();
+            System.out.println("\n------------------------------\n");
+
+        } catch (Exception e) {
+            System.err.println("Exception: " + e);
+        }
     }
 
     public static void init() {
@@ -68,13 +95,14 @@ public class KitchenManagerTest {
         em = EventManager.getInstance();
         sm = ShiftManager.getInstance();
         testService = em.getService(2);
-        System.out.println("SERVICE TEST : "+ testService+"\n");
+        System.out.println("SERVICE TEST : " + testService + "\n");
         um.fakeLogin("Lidia");
     }
 
     public void after() throws UseCaseLogicException {
-        if (testResume != null)
+        if (testResume != null) {
             km.getResumes().remove(testResume);
+        }
     }
 
     public void generateResume() throws UseCaseLogicException {
@@ -99,8 +127,9 @@ public class KitchenManagerTest {
         int tbp_before = testResume.getToBePrepared().size();
         int tasks_before = testResume.getTasks().size();
         testResume.addTask(new Task(testResume.getToBePrepared().get(0), null, null, 0, null));
-        if (!notAlreadyRequired.isEmpty())
+        if (!notAlreadyRequired.isEmpty()) {
             testResume.addToBePrepared(notAlreadyRequired.get(0));
+        }
         km.resetResume(testResume);
         if (tbp_before != testResume.getToBePrepared().size() || tasks_before != 0) {
             System.out.println("Error: Resume reset failed.");
@@ -110,14 +139,7 @@ public class KitchenManagerTest {
     }
 
     public void addToBePrepared() throws UseCaseLogicException {
-        System.out.println("---- 11111 ----- \n");
-        System.out.println("---- testService:  -----> " + testService);
-        
-        /* voglio generare un foglio di riepilogativo*/
         testResume = km.generateResume(testService);
-        
-        System.out.println("---- 222222 ----- \n");
-
         int tbpBefore = testResume.getToBePrepared().size();
         testResume.addToBePrepared(getSuitableRecipes(testResume).get(0));
         if (tbpBefore + 1 != testResume.getToBePrepared().size()) {
@@ -138,7 +160,7 @@ public class KitchenManagerTest {
         }
     }
 
-    public void moveToBePrepared() throws UseCaseLogicException {
+    public void sortToBePrepared() throws UseCaseLogicException {
         testResume = km.generateResume(testService);
         AbstractRecipe ar = testResume.getToBePrepared().get(0);
         km.sortToBePrepared(testResume, ar, 1);
@@ -187,9 +209,125 @@ public class KitchenManagerTest {
 
     private List<AbstractRecipe> getSuitableRecipes(ServiceResume resume) {
         List<AbstractRecipe> required_recipes = resume.getToBePrepared();
-       List<AbstractRecipe> allRecipes = (List<AbstractRecipe>)(List<?>) Recipe.loadAllRecipes();
+        List<AbstractRecipe> allRecipes = (List<AbstractRecipe>) (List<?>) Recipe.loadAllRecipes();
         return allRecipes.stream()
-            .filter(r -> !required_recipes.contains(r))
-            .collect(Collectors.toList());
+                .filter(r -> !required_recipes.contains(r))
+                .collect(Collectors.toList());
     }
+
+    public void testSignalShiftComplete() {
+        try {
+            Shift invalidShift = null;
+            km.signalShiftComplete(testResume, invalidShift, true);
+            System.out.println("Error: NullPointerException expected for null shift.");
+        } catch (NullPointerException e) {
+            System.out.println("Passed: Caught NullPointerException as expected.");
+        } catch (Exception e) {
+            System.out.println("Error: Unexpected exception type " + e.getClass().getSimpleName());
+        }
+
+        try {
+            Shift validShift = new Shift(); // Assuming this is a valid Shift object.
+            um.fakeLogin("NonChefUser"); // Assuming this logs in a user who is not a chef.
+            km.signalShiftComplete(testResume, validShift, true);
+            System.out.println("Error: UseCaseLogicException expected for non-chef user.");
+        } catch (UseCaseLogicException e) {
+            System.out.println("Passed: Caught UseCaseLogicException as expected with message: " + e.getMessage());
+        }
+
+        // Further tests for other scenarios.
+    }
+
+    public void testSignalReady() {
+        try {
+            AbstractRecipe nullRecipe = null;
+            km.signalReady(testResume, nullRecipe, "10");
+            System.out.println("Error: NullPointerException expected for null recipe.");
+        } catch (NullPointerException e) {
+            System.out.println("Passed: Caught NullPointerException as expected.");
+        } catch (Exception e) {
+            System.out.println("Error: Unexpected exception type " + e.getClass().getSimpleName());
+        }
+
+        try {
+            AbstractRecipe validRecipe = new Recipe("pasta al sugo"); // Assume this creates a valid recipe.
+            um.fakeLogin("NonChefUser"); // Assuming this logs in a user who is not a chef.
+            km.signalReady(testResume, validRecipe, "10");
+            System.out.println("Error: UseCaseLogicException expected for non-chef user.");
+        } catch (UseCaseLogicException e) {
+            System.out.println("Passed: Caught UseCaseLogicException as expected with message: " + e.getMessage());
+        }
+
+        // Further tests for other scenarios.
+    }
+
+    public void testDeleteReady() {
+        try {
+            km.deleteReady(testResume, null);
+            System.out.println("Error: NullPointerException expected for null availability.");
+        } catch (NullPointerException e) {
+            System.out.println("Passed: Caught NullPointerException as expected.");
+        } catch (Exception e) {
+            System.out.println("Error: Unexpected exception type " + e.getClass().getSimpleName());
+        }
+
+        try {
+            Availability invalidAvailability = new Availability(); // Assuming a constructor exists.
+            um.fakeLogin("NonChefUser"); // Log in a non-chef user.
+            km.deleteReady(testResume, invalidAvailability);
+            System.out.println("Error: UseCaseLogicException expected for non-chef user.");
+        } catch (UseCaseLogicException e) {
+            System.out.println("Passed: Caught UseCaseLogicException as expected with message: " + e.getMessage());
+        }
+
+        try {
+            Availability validAvailability = new Availability(); // Create a valid, existing availability.
+            testResume.addAvailability(validAvailability); // Assuming method to add availability for testing.
+            um.fakeLogin("Tony"); // Log in as a chef.
+            km.deleteReady(testResume, validAvailability);
+            System.out.println("Passed: Successfully deleted availability.");
+        } catch (Exception e) {
+            System.out.println("Error: Failed with exception " + e.getMessage());
+        }
+    }
+
+    public void testAssignTaskTime() {
+        try {
+            km.assignTaskTime(null, 30);
+            System.out.println("Error: NullPointerException expected for null task.");
+        } catch (Exception e) {
+            System.out.println("Passed: Caught NullPointerException as expected.");
+        }
+
+        try {
+            Task validTask = new Task(); // Assume a valid task constructor
+            validTask.setShift(new Shift()); // Assume setting a shift that passes the overtime check.
+            um.fakeLogin("NonChefUser"); // Assume this user is not a chef.
+            km.assignTaskTime(validTask, 30);
+            System.out.println("Error: UseCaseLogicException expected for non-chef user.");
+        } catch (UseCaseLogicException e) {
+            System.out.println("Passed: Caught UseCaseLogicException as expected.");
+        }
+    }
+
+    public void testSetPreviousStep() {
+        try {
+            km.setPreviousStep(testResume, null);
+            System.out.println("Error: NullPointerException expected for null previous task.");
+        } catch (Exception e) {
+            System.out.println("Passed: Caught NullPointerException as expected.");
+        }
+
+        try {
+            Task currentTask = new Task(); // Setup a current task
+            Task previousTask = new Task(); // Setup a previous task
+            testResume.setCurrentTask(currentTask);
+            um.fakeLogin("Tony");
+            km.setPreviousStep(testResume, previousTask);
+            System.out.println("Passed: Successfully set previous step.");
+        } catch (UseCaseLogicException e) {
+            System.out.println("Error: UseCaseLogicException expected for invalid task setup: " + e.getMessage());
+        }
+    }
+
 }

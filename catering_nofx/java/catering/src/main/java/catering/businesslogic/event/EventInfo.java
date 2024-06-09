@@ -11,6 +11,7 @@ import catering.persistence.PersistenceManager;
 import catering.persistence.ResultHandler;
 
 public class EventInfo implements EventItemInfo {
+
     private int id;
     private String name;
     private Date dateStart;
@@ -35,14 +36,15 @@ public class EventInfo implements EventItemInfo {
     }
 
     public ServiceInfo getService(int id) {
-        for (ServiceInfo s: services)
-          if(s.getId() == id)
-            return s;
+        for (ServiceInfo s : services) {
+            if (s.getId() == id) {
+                return s;
+            }
+        }
         return null;
-      }
+    }
 
     // STATIC METHODS FOR PERSISTENCE
-
     public static ArrayList<EventInfo> loadAllEventInfo() {
         ArrayList<EventInfo> all = new ArrayList<>();
         String query = "SELECT * FROM events WHERE true";
@@ -64,19 +66,22 @@ public class EventInfo implements EventItemInfo {
         for (EventInfo e : all) {
             e.services = ServiceInfo.loadServiceInfoForEvent(e.id);
         }
-        
+
         return all;
     }
 
-    public String getChef(){
+    public String getChef() {
         return chef.getUserName();
     }
-    public String getOrganizer(){
+
+    public String getOrganizer() {
         return organizer.getUserName();
     }
+
     public boolean isChefInCharge(User user) {
         return user.equals(chef);
     }
+
     public boolean isOrgInCharge(User user) {
         return user.getId() == organizer.getId();
     }

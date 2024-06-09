@@ -2,19 +2,22 @@ package catering.businesslogic.shift;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.temporal.ChronoUnit;
 
+import catering.businesslogic.kitchen.Task;
 import catering.persistence.PersistenceManager;
 
 public class Shift {
+
     private LocalDateTime start;
     private LocalDateTime end;
     public boolean complete;
+    private List<Task> tasks = new ArrayList<>();
     private int id;
 
-    private Shift() {
+    public Shift() {
     }
 
     public Shift(LocalDateTime start, LocalDateTime end, boolean complete, int id) {
@@ -53,12 +56,25 @@ public class Shift {
     }
 
     /**
-     * 
+     *
      * @return la durata del turno in minuti
      */
-    public int getDuration(Shift shift) {
-        long durationInMinutes = ChronoUnit.MINUTES.between(shift.start, shift.end);
+    public int getDuration() {
+        long durationInMinutes = ChronoUnit.MINUTES.between(start, end);
         return (int) durationInMinutes;
+    }
+
+    public boolean checkOverTimeTask(int time) {
+        int totalTime = 0;
+        for (Task t : tasks) {
+            totalTime += t.getTime();
+        }
+        totalTime += time;
+        if (getDuration() >= totalTime) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -66,10 +82,10 @@ public class Shift {
         DateTimeFormatter dayFormat = DateTimeFormatter.ofPattern("dd MMMM");
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
 
-        return dayFormat.format(start.toLocalDate()) +
-                "  " + timeFormat.format(start.toLocalTime()) +
-                " - " + timeFormat.format(end.toLocalTime()) +
-                ", completo: " + complete;
+        return dayFormat.format(start.toLocalDate())
+                + "  " + timeFormat.format(start.toLocalTime())
+                + " - " + timeFormat.format(end.toLocalTime())
+                + ", completo: " + complete;
     }
 
     public static List<Shift> loadShifts() {

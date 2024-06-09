@@ -19,6 +19,7 @@ import catering.persistence.BatchUpdateHandler;
 import catering.persistence.PersistenceManager;
 
 public class ServiceResume {
+
     private ServiceInfo referredService;
     private List<AbstractRecipe> toBePrepared = new ArrayList<>();
     private List<Task> tasks = new ArrayList<>();
@@ -27,8 +28,9 @@ public class ServiceResume {
     private Task currentTask;
 
     public ServiceResume(ServiceInfo service) {
-        if (service == null)
+        if (service == null) {
             throw new NullPointerException();
+        }
 
         referredService = service;
         // toBePrepared.addAll(loadToBePrepared());
@@ -36,13 +38,14 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param service
      * @param id
      */
     private ServiceResume(ServiceInfo service, int id) {
-        if (service == null)
+        if (service == null) {
             throw new NullPointerException();
+        }
 
         referredService = service;
         this.id = id;
@@ -53,7 +56,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param resume
      */
     public static void save(ServiceResume resume) {
@@ -75,7 +78,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @return
      */
     List<AbstractRecipe> loadToBePrepared() {
@@ -87,21 +90,23 @@ public class ServiceResume {
 
         for (Section s : sections) {
             List<MenuItem> sectionItems = s.getSectionItems();
-            for (MenuItem mi : sectionItems)
+            for (MenuItem mi : sectionItems) {
                 toBePrepared.add(mi.getItemRecipe());
+            }
 
             // toBePrepared.add(mi.getItemRecipe());
         }
 
-        for (MenuItem mi : freeItems)
+        for (MenuItem mi : freeItems) {
             toBePrepared.add(mi.getItemRecipe());
+        }
 
         this.toBePrepared.addAll(toBePrepared);
         return toBePrepared;
     }
 
     /**
-     * 
+     *
      * @return
      */
     public ServiceInfo getReferredService() {
@@ -109,7 +114,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param tbp
      */
     public void addToBePrepared(AbstractRecipe tbp) {
@@ -117,7 +122,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param tbp
      * @param position
      */
@@ -131,7 +136,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @return size of toBePrepared list
      */
     public int toBePreparedSize() {
@@ -139,7 +144,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param recipe
      * @return
      */
@@ -158,7 +163,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @return
      */
     private List<AbstractRecipe> loadToBePreparedFromDB() {
@@ -175,7 +180,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public static List<ServiceResume> loadAllServiceResumes() {
@@ -185,8 +190,9 @@ public class ServiceResume {
             int id = rs.getInt("id");
             int serviceId = rs.getInt("service_id");
             ServiceInfo service = EventManager.getInstance().getService(serviceId);
-            if (service != null)
+            if (service != null) {
                 resumes.add(new ServiceResume(service, id));
+            }
         });
 
         return resumes;
@@ -194,7 +200,7 @@ public class ServiceResume {
 
     /**
      * remote all tasks from list in service resume
-     * 
+     *
      * @return
      */
     public List<Task> deleteAllTask() {
@@ -205,21 +211,22 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public List<AbstractRecipe> deleteAllToBePrepared() {
         List<AbstractRecipe> deletedTBP = new ArrayList<>();
 
-        for (AbstractRecipe ar : toBePrepared)
+        for (AbstractRecipe ar : toBePrepared) {
             deletedTBP.add(ar);
+        }
         toBePrepared.clear();
 
         return deletedTBP;
     }
 
     /**
-     * 
+     *
      * @return
      */
     public List<AbstractRecipe> getToBePrepared() {
@@ -227,7 +234,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public Task getCurrentTask() {
@@ -235,7 +242,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param
      */
     public void setCurrentTask(Task currentTask) {
@@ -243,7 +250,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param task
      * @return
      */
@@ -252,18 +259,19 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param shift
      * @return
      */
     public boolean validShift(Shift shift) {
-        if (shift == null)
+        if (shift == null) {
             throw new NullPointerException();
+        }
         return shift.getStart().isAfter(LocalDateTime.now());
     }
 
     /**
-     * 
+     *
      * @return
      */
     public List<Task> getTasks() {
@@ -271,32 +279,36 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param task
      * @return
      */
     public Task whichAmIPrecedent(Task task) {
-        for (Task t : tasks)
-            if (t.getPreviousStep() != null && t.getPreviousStep() == task)
+        for (Task t : tasks) {
+            if (t.getPreviousStep() != null && t.getPreviousStep() == task) {
                 return t;
+            }
+        }
         return null;
     }
 
     /**
-     * 
+     *
      * @param task
      */
     public void removeTask(Task task) {
-        if (task == null)
+        if (task == null) {
             throw new NullPointerException();
+        }
         tasks.remove(task);
         Task t = whichAmIPrecedent(task);
-        if (t != null)
+        if (t != null) {
             t.setPreviousStep(null);
+        }
     }
 
     /**
-     * 
+     *
      * @param done
      */
     public void addAvailability(Availability done) {
@@ -304,7 +316,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @param done
      */
     public void deleteAvailability(Availability done) {
@@ -312,7 +324,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public List<Availability> getAvailabilities() {
@@ -320,7 +332,7 @@ public class ServiceResume {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public int getId() {

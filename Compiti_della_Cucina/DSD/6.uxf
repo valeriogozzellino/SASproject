@@ -31,8 +31,7 @@ halign=left
 
 
 
--.</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>480</y><w>220</w><h>70</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;
-task.time = timeTask</panel_attributes><additional_attributes>10;10;90;10;90;50;10;50</additional_attributes></element><element><id>UMLFrame</id><coordinates><x>100</x><y>720</y><w>990</w><h>140</h></coordinates><panel_attributes>ALT 
+-.</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLFrame</id><coordinates><x>100</x><y>720</y><w>990</w><h>140</h></coordinates><panel_attributes>ALT 
 [(shift.endTime - shift.startTime) &gt;= timeTask ]
 fg=#D3001B
 lw=1

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class Recipe extends AbstractRecipe {
+
     public Recipe(String name) {
         super(name);
     }

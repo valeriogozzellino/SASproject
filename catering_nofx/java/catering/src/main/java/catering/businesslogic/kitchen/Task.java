@@ -5,6 +5,7 @@ import catering.businesslogic.shift.Shift;
 import catering.businesslogic.user.User;
 
 public class Task {
+
     private AbstractRecipe tbp;
     private User cook;
     private Shift shift;
@@ -13,11 +14,13 @@ public class Task {
     private Task previousTask;
     private int id;
 
-    private Task() {}
+    public Task() {
+    }
 
     public Task(AbstractRecipe tbp, User cook, Shift shift, int time, String quantity) {
-        if (tbp == null)
+        if (tbp == null) {
             throw new NullPointerException();
+        }
         this.tbp = tbp;
         this.cook = cook;
         this.shift = shift;
